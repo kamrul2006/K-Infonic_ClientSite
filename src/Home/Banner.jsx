@@ -53,13 +53,16 @@ const BannerSlider = () => {
                                 key={idx}
                                 className="relative z-20 h-[90vh] flex items-center justify-center px-6 md:px-12"
                             >
+
                                 <div className="text-center text-white space-y-6 max-w-3xl animate-fade-in-up">
                                     <h2 className="text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg leading-tight font-serif">
                                         {slide.title}
                                     </h2>
+
                                     <p className="text-lg md:text-xl font-medium text-gray-200 opacity-95 md:mb-10">
                                         {slide.subtitle}
                                     </p>
+
                                     <Link to={"/all-articles"} className="mt-5 md:mt-10 px-8 py-3 rounded-full bg-white text-red-700 font-semibold shadow-xl hover:bg-red-100 hover:scale-105 transition-all duration-300">
                                         Explore News
                                     </Link>
