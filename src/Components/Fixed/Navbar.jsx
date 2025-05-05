@@ -1,0 +1,139 @@
+import { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
+import logo from '../../assets/reeef.png';
+
+const Navbar = ({ user, handleLogout, isAdmin }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleMenu = () => setIsOpen(!isOpen);
+
+    const navLinkClasses =
+        'transition duration-300 relative text-base font-medium px-2 py-1 hover:text-red-500';
+
+    const activeLinkStyle = ({ isActive }) =>
+        isActive
+            ? 'text-red-600 after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-red-600'
+            : 'text-gray-800 dark:text-gray-100';
+
+    const navLinks = (
+        <>
+            <li>
+                <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to="/add-article" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    Add Articles
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to="/all-articles" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    All Articles
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to="/subscription" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    Subscription
+                </NavLink>
+            </li>
+            {user && (
+                <li>
+                    <NavLink to="/my-articles" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                        My Articles
+                    </NavLink>
+                </li>
+            )}
+            {user && isAdmin && (
+                <li>
+                    <NavLink to="/dashboard" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                        Dashboard
+                    </NavLink>
+                </li>
+            )}
+        </>
+    );
+
+    return (
+        <nav className="bg-white dark:bg-zinc-900 shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700">
+            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+                {/* Logo */}
+                <Link to="/" className="flex items-center gap-2">
+                    <img src={logo} alt="K-Infonic" className="w-30 object-contain" />
+                </Link>
+
+                {/* Desktop Nav */}
+                <ul className="hidden md:flex items-center space-x-6">{navLinks}</ul>
+
+                {/* Auth Buttons */}
+                <div className="hidden md:flex items-center gap-4">
+                    {user ? (
+                        <>
+                            <FaUserCircle className="text-2xl text-gray-700 dark:text-gray-300" />
+                            <button
+                                onClick={handleLogout}
+                                className="bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded hover:opacity-90 transition"
+                            >
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Link
+                                to="/login"
+                                className="text-red-600 hover:underline transition"
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="/register"
+                                className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition"
+                            >
+                                Register
+                            </Link>
+                        </>
+                    )}
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button onClick={toggleMenu} className="md:hidden text-2xl text-gray-800 dark:text-gray-100">
+                    {isOpen ? <FaTimes /> : <FaBars />}
+                </button>
+            </div>
+
+            {/* Mobile Nav */}
+            {isOpen && (
+                <div className="md:hidden bg-white dark:bg-zinc-900 px-4 pb-4 border-t border-gray-100 dark:border-zinc-700">
+                    <ul className="flex flex-col gap-4">{navLinks}</ul>
+                    <div className="mt-4">
+                        {user ? (
+                            <>
+                                <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
+                                    <FaUserCircle className="text-xl" />
+                                    <span>{user.displayName}</span>
+                                </div>
+                                <button
+                                    onClick={handleLogout}
+                                    className="mt-2 text-red-600 hover:underline"
+                                >
+                                    Logout
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/login" className="block text-red-600 hover:underline">
+                                    Login
+                                </Link>
+                                <Link to="/register" className="block text-red-600 hover:underline">
+                                    Register
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default Navbar;
