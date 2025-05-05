@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../../assets/reeef.png';
 import {
     FaFacebookF,
     FaTwitter,
@@ -15,7 +16,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
                 {/* About */}
                 <div>
-                    <h2 className="text-xl font-semibold text-red-600 mb-3">K-Infonic</h2>
+                    <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl w-20 " />
                     <p className="text-sm leading-6">
                         K-Infonic is your go-to digital newspaper for reliable, fast, and in-depth reporting on national and global affairs.
                         We believe in the voice of digital truth.

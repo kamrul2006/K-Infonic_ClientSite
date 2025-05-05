@@ -55,11 +55,11 @@ const Navbar = ({ user, handleLogout, isAdmin }) => {
     );
 
     return (
-        <nav className="bg-white dark:bg-zinc-900 shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700">
+        <nav className="bg-white/50 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700">
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">
-                    <img src={logo} alt="K-Infonic" className="w-30 object-contain" />
+                    <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-30 w-20  object-contain" />
                 </Link>
 
                 {/* Desktop Nav */}
