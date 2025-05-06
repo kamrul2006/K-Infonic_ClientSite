@@ -34,7 +34,7 @@ const BannerSlider = () => {
 
     return (
         <div
-            className="relative w-7xl mx-auto mt-2 md:mt-10 rounded-4xl h-screen bg-cover bg-center  p-2"
+            className="relative w-7xl mx-auto mt-2 md:mt-10 rounded-4xl h-screen lg:h-[550px] bg-cover bg-center  p-2"
             style={{
                 backgroundImage:
                     "url('https://img.freepik.com/free-photo/top-view-newspaper-pieces-assortment_23-2149318830.jpg')",

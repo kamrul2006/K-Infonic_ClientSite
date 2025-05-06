@@ -95,7 +95,7 @@ const LoginPage = () => {
 
                     <img src={ill} alt="K-InfoNic" className="max-w-full h-auto object-contain md:w-40 bg-white/50 p-3 rounded-3xl w-20 " />
 
-                    <Link to={'/'} className="btn btn-sm btn-error mt-2 md:mt-5">
+                    <Link to={'/'} className="btn btn-sm bg-green-500 mt-2 md:mt-5">
                         <FaHome className="mr-2" />
                         Back to Home</Link>
                 </div>
@@ -163,7 +163,7 @@ const LoginPage = () => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full py-2 bg-green-400 hover:bg-green-500 text-white font-medium rounded-md"
+                            className="w-full py-2 bg-green-400 hover:bg-green-500 text-black font-medium rounded-md"
                         >
                             Sign in
                         </button>
