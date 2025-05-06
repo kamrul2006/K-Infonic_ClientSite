@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
-import logo from '../../assets/reeef.png';
+import logo from '../../assets/reeek.png';
 import { AuthContext } from '../../Auth/Providers/AuthProvider';
 
 const Navbar = ({ isAdmin }) => {
@@ -11,11 +11,11 @@ const Navbar = ({ isAdmin }) => {
     const { user, UserSignOut } = useContext(AuthContext)
 
     const navLinkClasses =
-        'transition duration-300 relative text-base font-medium px-2 py-1 hover:text-red-500';
+        'transition duration-300 relative text-base font-medium px-2 py-1 hover:text-green-500';
 
     const activeLinkStyle = ({ isActive }) =>
         isActive
-            ? 'text-red-600 after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-red-600'
+            ? 'text-green-600 after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-green-600'
             : 'text-gray-800 dark:text-gray-100';
 
     const navLinks = (
@@ -58,15 +58,15 @@ const Navbar = ({ isAdmin }) => {
     );
 
     return (
-        <nav className="bg-white/50 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700">
-            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <nav className="bg-white/70 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700">
+            <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">
                     <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl w-12 md:w-20  object-contain" />
                 </Link>
 
                 {/* Desktop Nav */}
-                <ul className="hidden md:flex items-center space-x-6">{navLinks}</ul>
+                <ul className="hidden font-semibold md:flex items-center space-x-6">{navLinks}</ul>
 
                 {/* Auth Buttons */}
                 <div className="hidden md:flex items-center gap-4">
@@ -75,7 +75,7 @@ const Navbar = ({ isAdmin }) => {
                             <FaUserCircle className="text-2xl text-gray-700 dark:text-gray-300" />
                             <button
                                 onClick={UserSignOut}
-                                className="bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded hover:opacity-90 transition"
+                                className="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded hover:opacity-90 transition"
                             >
                                 Logout
                             </button>
@@ -84,13 +84,13 @@ const Navbar = ({ isAdmin }) => {
                         <>
                             <Link
                                 to="/login"
-                                className="text-red-600 hover:underline transition"
+                                className="text-green-600 hover:underline transition"
                             >
                                 Login
                             </Link>
                             <Link
                                 to="/register"
-                                className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition"
+                                className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition"
                             >
                                 Register
                             </Link>
@@ -118,18 +118,18 @@ const Navbar = ({ isAdmin }) => {
                                 </div>
                                 <button
                                     onClick={handleLogout}
-                                    className="mt-2 text-red-600 hover:underline"
+                                    className="mt-2 text-green-600 hover:underline"
                                 >
                                     Logout
                                 </button>
                             </>
                         ) : (
                             <>
-                                <Link to="/login" className="block text-red-600 hover:underline">
+                                <Link to="/login" className="block text-green-600 hover:underline">
                                     Login
                                 </Link>
 
-                                <Link to="/register" className="block text-red-600 hover:underline">
+                                <Link to="/register" className="block text-green-600 hover:underline">
                                     Register
                                 </Link>
                             </>
