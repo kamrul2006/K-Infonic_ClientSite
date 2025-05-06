@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import KTechLoader from "../../Components/FixdToAll/KLoader";
+import KInfonicLoader from "../../Components/Fixed/KInfonicLoader";
 
 const PrivetRout = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
@@ -12,7 +12,7 @@ const PrivetRout = ({ children }) => {
 
     if (loading) {
         return (<div>
-            <KTechLoader />
+            <KInfonicLoader />
         </div>)
     }
 
