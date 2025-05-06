@@ -62,7 +62,7 @@ const Navbar = ({ isAdmin }) => {
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">
-                    <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-30 w-20  object-contain" />
+                    <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl w-12 md:w-20  object-contain" />
                 </Link>
 
                 {/* Desktop Nav */}

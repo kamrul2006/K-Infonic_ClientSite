@@ -49,10 +49,13 @@ const publishers = [
 const AllPublishers = () => {
     return (
         <section className="bg-gradient-to-b from-red-400 via-white to-red-400 text-white py-16 px-4 rounded-2xl mt-5">
+
             <div className="max-w-7xl mx-auto text-center">
+
                 <h2 className="text-5xl font-extrabold mb-4 tracking-wide text-white drop-shadow-md">
                     Our <span className="text-red-500 bg-white px-2 rounded-2xl">Top Publishers</span>
                 </h2>
+
                 <p className="text-red-500 mb-12 text-lg max-w-2xl mx-auto">
                     Providing trusted and verified articles across multiple categories — real voices, real news.
                 </p>

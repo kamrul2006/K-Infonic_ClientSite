@@ -1,0 +1,45 @@
+import { FaFacebookF, FaTwitter, FaYoutube, FaSearch } from 'react-icons/fa';
+import logo from '../../assets/reeef.png';
+
+
+const Header = () => {
+    const today = new Date().toLocaleDateString('en-GB', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
+
+    return (
+        <header className="w-full bg-gray-100 border-b border-gray-400 px-4 py-2">
+
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+                {/* Left - Social Icons + Date */}
+
+                <div className='flex flex-col items-center justify-center gap-3 text-xs md:text-base'>
+
+                    <div className="flex items-center gap-4 text-gray-700">
+                        <FaFacebookF className="hover:text-red-600 cursor-pointer" />
+                        <FaTwitter className="hover:text-red-600 cursor-pointer" />
+                        <FaYoutube className="hover:text-red-600 cursor-pointer" />
+                    </div>
+                    <span className="md:text-sm text-xs  text-gray-500">{today}</span>
+                </div>
+
+                {/* Center - Logo */}
+                <div className=" text-md md:text-4xl font-bold text-gray-900 tracking-wide py-3 flex items-center justify-center  md:gap-2">
+                    <span className="text-gray-500">The</span>
+                    <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-48 w-20  object-contain" />
+                    <span className="text-gray-500 text-xs mt-10 hidden md:block">The Digital Truth....</span>
+
+                </div>
+
+
+                {/* Right - Empty to balance layout */}
+                <div className="w-28" />
+            </div>
+        </header>
+    );
+};
+
+export default Header;
