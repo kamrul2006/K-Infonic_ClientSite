@@ -1,0 +1,61 @@
+[
+    {
+        "id": 1,
+        "title": "Global Leaders Meet to Discuss Climate Action",
+        "image": "https://globalcsr.org/wp-content/uploads/2024/01/World-Leaders-Gather-for-Implementation-at-COP27.webp",
+        "publisher": "Eco Daily",
+        "description": "World leaders gathered today to push for urgent measures on global warming and carbon reduction policies.",
+        "category": "Politics",
+        "type": "premium"
+    },
+    {
+        "id": 2,
+        "title": "Breakthrough in Quantum Computing Announced",
+        "image": "https://www.thedigitalspeaker.com/content/images/2024/03/Quantum-Breakthrough--Unveiling-Next-Gen-Computational-Power.webp",
+        "publisher": "TechPulse",
+        "description": "A new quantum chip could change the way we process information and accelerate AI innovations.",
+        "category": "Technology",
+        "type": "general",
+        "status": "approved"
+    },
+    {
+        "id": 3,
+        "title": "Champions League Final Ends in a Stunning Draw",
+        "image": "https://vygrnews.com/uploader/uefa_champions_league_2024_25_league_phase_draw__1727948827.webp",
+        "publisher": "SportsVerse",
+        "description": "A nail-biting finale saw both teams locked in a 2-2 tie, thrilling millions of football fans worldwide.",
+        "category": "Sports",
+        "type": "general",
+        "status": "approved"
+    },
+    {
+        "id": 4,
+        "title": "Markets Rebound After Record Lows",
+        "image": "https://images.news9live.com/wp-content/uploads/2024/12/Multibagger-returns-in-Indian-stock-market.png",
+        "publisher": "Money Monitor",
+        "description": "Investors saw hope as tech stocks led a surprising comeback in today’s trading session.",
+        "category": "Business",
+        "type": "premium",
+        "status": "approved"
+    },
+    {
+        "id": 5,
+        "title": "New Species Discovered in Amazon Rainforest",
+        "image": "https://cms-imgp.jw-cdn.org/img/p/102015287/univ/art/102015287_univ_lsr_lg.jpg",
+        "publisher": "Nature Today",
+        "description": "Scientists uncovered a new species of insect with unique bioluminescent properties.",
+        "category": "Science",
+        "type": "general",
+        "status": "approved"
+    },
+    {
+        "id": 6,
+        "title": "Dr. Muhammad Yunus Honored for Social Business Innovations",
+        "image": "https://businessinspection.com.bd/wp-content/uploads/2021/09/Dr.-Muhammad-Yunus-Father-of-Microcredit-and-Social-Business.jpg",
+        "publisher": "Global Insights",
+        "description": "Nobel Laureate Dr. Muhammad Yunus has received international recognition once again for his pioneering work in microfinance and social business. Speaking at the Global Impact Forum, Yunus emphasized the need for inclusive financial systems to alleviate poverty and empower communities. His Grameen Bank model has influenced social entrepreneurs worldwide.",
+        "category": "Inspiration",
+        "type": "premium",
+        "status": "approved"
+    }
+]

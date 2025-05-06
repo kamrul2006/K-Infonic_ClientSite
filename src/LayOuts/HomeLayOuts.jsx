@@ -1,12 +1,13 @@
 import React from 'react'
 import BannerSlider from '../Home/Banner'
-import KInfonicLoader from '../Components/Fixed/KInfonicLoader'
+import AllArticles from '../AllArticles/AllArticles'
 
 export const HomeLayOuts = () => {
     return (
         <div>
             <BannerSlider />
-            <div className='max-w-7xl'>
+            <div className='max-w-7xl mx-auto'>
+
 
             </div>
         </div>
