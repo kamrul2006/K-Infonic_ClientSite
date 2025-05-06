@@ -3,6 +3,7 @@ import BannerSlider from '../Home/Banner'
 import HomeStats from '../Home/HomeStats'
 import AllPublishers from '../Home/Allpublisher'
 import TrendingArticles from '../Home/TrendingArticles'
+import Plans from '../Home/Plans'
 
 export const HomeLayOuts = () => {
     return (
@@ -18,7 +19,7 @@ export const HomeLayOuts = () => {
 
                 <HomeStats />
 
-
+                <Plans />
 
 
             </div>
