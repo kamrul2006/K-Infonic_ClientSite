@@ -10,9 +10,8 @@ export const HomeLayOuts = () => {
             <BannerSlider />
             <div className='max-w-7xl mx-auto'>
 
-                {/* <Login /> */}
 
-                <LoginPage />
+
 
             </div>
         </div>

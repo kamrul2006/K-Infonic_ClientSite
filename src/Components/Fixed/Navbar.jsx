@@ -104,6 +104,7 @@ const Navbar = ({ isAdmin }) => {
                 </button>
             </div>
 
+
             {/* Mobile Nav */}
             {isOpen && (
                 <div className="md:hidden bg-white dark:bg-zinc-900 px-4 pb-4 border-t border-gray-100 dark:border-zinc-700">

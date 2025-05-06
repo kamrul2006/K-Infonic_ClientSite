@@ -4,6 +4,7 @@ import ErrorPage from "./Components/Fixed/ErrorPage";
 import { HomeLayOuts } from "./LayOuts/HomeLayOuts";
 import AllArticles from "./AllArticles/AllArticles";
 import LoginPage from "./Auth/Users/Loginpage";
+import PrivetRout from "./Auth/Privet/Privetrought";
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/all-articles",
-                element: <AllArticles />
+                element: <PrivetRout><AllArticles /></PrivetRout>
             },
         ]
     },

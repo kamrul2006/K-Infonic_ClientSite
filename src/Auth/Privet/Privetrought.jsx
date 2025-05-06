@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import KInfonicLoader from "../../Components/Fixed/KInfonicLoader";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const PrivetRout = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
