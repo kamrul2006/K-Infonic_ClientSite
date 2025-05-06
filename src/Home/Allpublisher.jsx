@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 const publishers = [
     {
         id: 1,
-        name: 'RedVision Media',
+        name: 'greenVision Media',
         articles: 3450,
         subscribers: 58000,
         icon: <FaBroadcastTower size={28} />,
@@ -48,15 +48,15 @@ const publishers = [
 
 const AllPublishers = () => {
     return (
-        <section className="bg-gradient-to-b from-red-400 via-white to-red-400 text-white py-16 px-4 rounded-2xl mt-5">
+        <section className="bg-gradient-to-b from-green-200 via-white to-green-200 text-white py-16 px-4 rounded-2xl mt-5">
 
             <div className="max-w-7xl mx-auto text-center">
 
-                <h2 className="text-5xl font-extrabold mb-4 tracking-wide text-white drop-shadow-md">
-                    Our <span className="text-red-500 bg-white px-2 rounded-2xl">Top Publishers</span>
+                <h2 className="text-5xl font-extrabold mb-4 tracking-wide text-green-400 ">
+                    Our <span className="text-green-700 bg-white px-2 rounded-2xl">Top Publishers</span>
                 </h2>
 
-                <p className="text-red-500 mb-12 text-lg max-w-2xl mx-auto">
+                <p className="text-green-500 mb-12 text-lg max-w-2xl mx-auto">
                     Providing trusted and verified articles across multiple categories — real voices, real news.
                 </p>
 
@@ -64,15 +64,15 @@ const AllPublishers = () => {
                     {publishers.map(pub => (
                         <div
                             key={pub.id}
-                            className="p-6 bg-red-950/60 backdrop-blur-md border border-red-700 rounded-2xl shadow-[0_0_20px_rgba(255,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,0,0,0.6)] transition-transform hover:-translate-y-2 duration-300"
+                            className="p-6 bg-green-950/60 backdrop-blur-md border border-green-700 rounded-2xl shadow  transition-transform hover:-translate-y-2 duration-300"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="p-3 bg-red-600 text-white rounded-full shadow-lg">
+                                <div className="p-3 bg-green-600 text-white rounded-full shadow-lg">
                                     {pub.icon}
                                 </div>
                                 <h3 className="text-xl font-bold tracking-wide">{pub.name}</h3>
                             </div>
-                            <div className="text-left pl-2 text-red-200">
+                            <div className="text-left pl-2 text-green-200">
                                 <p className="mb-1 text-sm">
                                     Articles: <span className="font-semibold text-white">
                                         <CountUp end={pub.articles} duration={2} />

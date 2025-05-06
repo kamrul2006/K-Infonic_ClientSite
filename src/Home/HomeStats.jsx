@@ -8,7 +8,7 @@ const stats = [
         title: 'Active Users',
         value: 35200,
         suffix: '+',
-        color: 'from-red-500 to-red-700',
+        color: 'from-green-500 to-green-700',
     },
     {
         id: 2,
@@ -16,7 +16,7 @@ const stats = [
         title: 'Articles Published',
         value: 1150,
         suffix: '+',
-        color: 'from-red-400 to-red-600',
+        color: 'from-green-400 to-green-600',
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const stats = [
         title: 'Global Reach',
         value: 75,
         suffix: '+ Countries',
-        color: 'from-rose-500 to-pink-600',
+        color: 'from-green-500 to-pink-600',
     },
     {
         id: 4,
@@ -32,18 +32,18 @@ const stats = [
         title: 'Premium Members',
         value: 12000,
         suffix: '+',
-        color: 'from-red-300 to-red-500',
+        color: 'from-green-300 to-green-500',
     },
 ];
 
 const HomeStats = () => {
     return (
-        <section className="bg-gradient-to-b from-red-950 via-red-900 to-red-800 py-16 px-4 md:rounded-2xl md:mt-5">
+        <section className="bg-gradient-to-b from-green-950 via-green-900 to-green-800 py-16 px-4 md:rounded-2xl md:mt-5">
             <div className="max-w-7xl mx-auto text-center text-white">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-md">
-                    Platform <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-red-500">Statistics</span>
+                    Platform <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-green-500">Statistics</span>
                 </h2>
-                <p className="text-red-200 mb-12 max-w-xl mx-auto text-lg">
+                <p className="text-green-200 mb-12 max-w-xl mx-auto text-lg">
                     See how we’re growing and connecting readers around the world.
                 </p>
 
