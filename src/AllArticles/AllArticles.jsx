@@ -13,7 +13,8 @@ const AllArticles = () => {
         fetch('http://localhost:5000/News')
             .then(res => res.json())
             .then(data => {
-                const approved = data.filter(article => article.status === 'approved');
+                // const approved = data.filter(article => article.status === 'approved');
+                const approved = data;
                 setArticles(approved);
                 setFilteredArticles(approved);
             });
@@ -97,8 +98,8 @@ const AllArticles = () => {
                         <div
                             key={article._id}
                             className={`rounded-xl overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-lg border ${isPremium
-                                    ? 'bg-gradient-to-tr from-black via-red-900 to-black text-white border-red-600 animate-pulse'
-                                    : 'bg-white text-gray-800 border-red-200'
+                                ? 'bg-gradient-to-tr from-black via-red-900 to-black text-white border-red-600 '
+                                : 'bg-white text-gray-800 border-red-200'
                                 }`}
                         >
                             <img
@@ -116,15 +117,19 @@ const AllArticles = () => {
                                 <p className={`line-clamp-3 text-sm ${isPremium ? 'text-gray-300' : 'text-gray-700'}`}>
                                     {article.description}
                                 </p>
+
+
                                 <Link
                                     to={`/article/${article._id}`}
                                     className={`inline-block mt-3 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isPremium
-                                            ? 'bg-white text-red-700 hover:bg-red-100'
-                                            : 'bg-red-600 text-white hover:bg-red-700'
+                                        ? 'bg-white text-red-700 hover:bg-red-100 btn btn-disabled'
+                                        : 'bg-red-600 text-white hover:bg-red-700'
                                         }`}
                                 >
                                     Details
                                 </Link>
+
+
                             </div>
                         </div>
                     );

@@ -4,6 +4,7 @@ import { auth } from "../FireBase/firebase.init";
 import axios from "axios";
 
 
+
 //----------------the context here------------------
 export const AuthContext = createContext()
 const provider = new GoogleAuthProvider()
@@ -61,30 +62,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
-
-            if (currentUser?.email) {
-                const user = { email: currentUser?.email };
-
-                axios.post('https://k-tech-server.vercel.app/jwt', user, { withCredentials: true })
-                    .then(res => {
-                        // console.log('login token', res.data);
-                        if (res.data.token) {
-                            localStorage.setItem('Token', res.data.token)
-                        }
-                        setLoading(false);
-                    })
-            }
-            else {
-                localStorage.removeItem('Token')
-
-                axios.post('https://k-tech-server.vercel.app/logout', {}, {
-                    withCredentials: true
-                })
-                    .then(res => {
-                        // console.log('logout', res.data);
-                        setLoading(false);
-                    })
-            }
             setLoading(false)
         });
 

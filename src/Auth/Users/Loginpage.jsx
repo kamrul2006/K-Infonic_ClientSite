@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaGoogle, FaFacebook, FaGithub, FaEyeSlash, FaEye, FaHome } from "react-icons/fa";
-import bg from "../../assets/loginbg.jpg"
-import ill from "../../assets/llg.jpg"
+import bg from "../../assets/lbg.jpg"
+import ill from "../../assets/logo.png"
 
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+// import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Providers/AuthProvider";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const LoginPage = () => {
     const axiosPublic = UseAxiosPublic()
+
     const [error, setError] = useState(null)
     const [success, setSuccess] = useState(null)
 
@@ -19,9 +20,6 @@ const LoginPage = () => {
         setShow(!show)
     }
 
-    useEffect(() => {
-        loadCaptchaEnginge(4);
-    }, [])
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -36,12 +34,6 @@ const LoginPage = () => {
         setSuccess(null)
         const email = e.target.email.value;
         const password = e.target.password.value;
-        let user_captcha_value = document.getElementById('user_captcha_input').value;
-
-        if (validateCaptcha(user_captcha_value) == false) {
-            setError('Captcha Does Not Match');
-            return;
-        }
 
 
         //-------------------------login with email and password--------------------
@@ -84,7 +76,7 @@ const LoginPage = () => {
                     })
             })
             .catch(err => {
-                // console.log(err);
+
                 setUser(null)
             })
     }
@@ -96,11 +88,14 @@ const LoginPage = () => {
             style={{ background: `url(${bg})`, backgroundSize: "cover" }}
         >
 
-            <div className=" shadow-xl border backdrop-blur-md border-black rounded-lg flex flex-col lg:flex-row w-11/12 max-w-4xl overflow-hidden">
+            <div className=" shadow-xl border backdrop-blur-lg text-white border-gray-400 rounded-lg flex flex-col lg:flex-row w-11/12 max-w-4xl overflow-hidden">
+
                 {/*----------------------- Left Side ------------------------*/}
                 <div className="w-full md:w-1/2 flex items-center justify-center flex-col p-3">
-                    <img src={ill} alt="Sign Up Illustration" className="max-w-full h-auto object-contain rounded-full w-20 md:w-80" />
-                    <Link to={'/'} className="btn btn-sm btn-info mt-2 md:mt-5">
+
+                    <img src={ill} alt="K-InfoNic" className="max-w-full h-auto object-contain md:w-40 bg-white/50 p-3 rounded-3xl w-20 " />
+
+                    <Link to={'/'} className="btn btn-sm btn-error mt-2 md:mt-5">
                         <FaHome className="mr-2" />
                         Back to Home</Link>
                 </div>
@@ -109,22 +104,26 @@ const LoginPage = () => {
 
                 {/*---------------------- Right Side-------------------- */}
                 <div className="lg:w-1/2 w-full p-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center lg:text-left">
+
+                    <h2 className="text-2xl font-bold text-black rounded-full md:rounded-t-4xl py-2 lg:w-30 mx-auto  text-center bg-white mb-6 ">
                         Login
                     </h2>
+
+
                     <form className="space-y-4" onSubmit={handleSubmit}>
+
                         {/* ------------------------Email Field ---------------------*/}
                         <div>
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium"
                             >
                                 Email
                             </label>
                             <input
                                 type="email"
                                 id="email"
-                                className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-blue-400 focus:border-blue-400"
+                                className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm  focus:border-red-400 peer"
                                 placeholder="Type here"
                                 required
                             />
@@ -137,35 +136,16 @@ const LoginPage = () => {
                                 type={show ? "text" : "password"}
                                 id="password"
                                 name="password"
-                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:border-blue-400 peer"
+                                className="w-full px-4 py-2 text-white border border-gray-300 rounded-lg focus:outline-none focus:border-red-400 peer"
                                 placeholder="Enter Password."
                                 required
                             />
                             <button
                                 onClick={ShowPassWord}
-                                className="btn btn-ghost btn-xs absolute right-3 top-8 text-lg text-black"
+                                className="mt-1 hover:text-red-400 btn-xs absolute right-3 top-8 text-lg text-white"
                             >
                                 {show ? <FaEyeSlash /> : <FaEye />}
                             </button>
-                        </div>
-
-                        {/* -----------------------Captcha------------------- */}
-                        <div className="p-4 bg-white rounded-xl">
-                            <label
-                                htmlFor="captcha"
-                                className="block text-sm font-medium text-gray-700"
-                            >
-                                Captcha
-                            </label>
-                            <div className="flex items-center justify-between">
-                                <LoadCanvasTemplate />
-                            </div>
-                            <input
-                                type="text"
-                                id="user_captcha_input"
-                                className="mt-2 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-blue-400 focus:border-blue-400"
-                                placeholder="Type here"
-                            />
                         </div>
 
                         {/* Error/Success Messages */}
@@ -183,18 +163,18 @@ const LoginPage = () => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full py-2 bg-blue-400 hover:bg-blue-500 text-white font-medium rounded-md"
+                            className="w-full py-2 bg-red-400 hover:bg-red-500 text-white font-medium rounded-md"
                         >
                             Sign in
                         </button>
                     </form>
 
                     {/* Registration Link */}
-                    <p className="mt-4 text-center text-sm text-gray-600">
+                    <p className="mt-4 text-center text-sm text-gray-300">
                         New here?{" "}
                         <a
                             href="/register"
-                            className="text-blue-500 hover:underline hover:font-bold"
+                            className="text-red-500 hover:underline hover:font-bold"
                         >
                             Create a New Account
                         </a>
@@ -202,11 +182,11 @@ const LoginPage = () => {
 
                     {/* Social Sign-in */}
                     <div className="mt-4 text-center">
-                        <p className="text-sm text-gray-600">Or sign in with</p>
+                        <p className="text-sm text-gray-300">Or sign in with</p>
                         <div className="flex justify-center space-x-4 mt-2">
                             <button
                                 onClick={HandleGoogleLogin}
-                                className="w-full btn  btn-sm text-blue-900"
+                                className="w-full btn  btn-sm text-red-900"
                             >
                                 <FaGoogle className="mr-2" />
                                 Sign in with Google

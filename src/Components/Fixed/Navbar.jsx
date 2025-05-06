@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
 import logo from '../../assets/reeef.png';
+import { AuthContext } from '../../Auth/Providers/AuthProvider';
 
-const Navbar = ({ user, handleLogout, isAdmin }) => {
+const Navbar = ({ isAdmin }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    const { user, UserSignOut } = useContext(AuthContext)
 
     const navLinkClasses =
         'transition duration-300 relative text-base font-medium px-2 py-1 hover:text-red-500';
@@ -71,7 +74,7 @@ const Navbar = ({ user, handleLogout, isAdmin }) => {
                         <>
                             <FaUserCircle className="text-2xl text-gray-700 dark:text-gray-300" />
                             <button
-                                onClick={handleLogout}
+                                onClick={UserSignOut}
                                 className="bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded hover:opacity-90 transition"
                             >
                                 Logout
@@ -124,6 +127,7 @@ const Navbar = ({ user, handleLogout, isAdmin }) => {
                                 <Link to="/login" className="block text-red-600 hover:underline">
                                     Login
                                 </Link>
+
                                 <Link to="/register" className="block text-red-600 hover:underline">
                                     Register
                                 </Link>
