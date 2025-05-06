@@ -48,9 +48,9 @@ const AllArticles = () => {
     return (
         <section className="max-w-7xl mx-auto px-4 py-10">
             {/* Stylish Responsive Heading */}
-            <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-extrabold mb-8 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 text-transparent bg-clip-text drop-shadow-lg animate-gradient">
+            <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-extrabold mb-8 bg-gradient-to-r from-green-600 via-yellow-500 to-green-600 text-transparent bg-clip-text drop-shadow-lg animate-gradient">
                 Explore Approved Articles
-                <div className="w-24 h-1 bg-red-500 mx-auto mt-3 rounded-full" />
+                <div className="w-24 h-1 bg-green-500 mx-auto mt-3 rounded-full" />
             </h2>
 
             {/* Filters */}
@@ -98,8 +98,8 @@ const AllArticles = () => {
                         <div
                             key={article._id}
                             className={`rounded-xl overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-lg border ${isPremium
-                                ? 'bg-gradient-to-tr from-black via-red-900 to-black text-white border-red-600 '
-                                : 'bg-white text-gray-800 border-red-200'
+                                ? 'bg-gradient-to-tr from-black via-green-900 to-black text-white border-green-600 '
+                                : 'bg-white text-gray-800 border-green-200'
                                 }`}
                         >
                             <img
@@ -108,10 +108,10 @@ const AllArticles = () => {
                                 className="h-48 w-full object-cover"
                             />
                             <div className="p-4 space-y-2">
-                                <h3 className={`text-xl font-bold leading-snug ${isPremium ? 'text-red-400' : 'text-gray-800'}`}>
+                                <h3 className={`text-xl font-bold leading-snug ${isPremium ? 'text-green-400' : 'text-gray-800'}`}>
                                     {article.title}
                                 </h3>
-                                <p className={`text-sm ${isPremium ? 'text-red-200' : 'text-gray-600'}`}>
+                                <p className={`text-sm ${isPremium ? 'text-green-200' : 'text-gray-600'}`}>
                                     By {article.publisher}
                                 </p>
                                 <p className={`line-clamp-3 text-sm ${isPremium ? 'text-gray-300' : 'text-gray-700'}`}>
@@ -122,8 +122,8 @@ const AllArticles = () => {
                                 <Link
                                     to={`/article/${article._id}`}
                                     className={`inline-block mt-3 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isPremium
-                                        ? 'bg-white text-red-700 hover:bg-red-100 btn btn-disabled'
-                                        : 'bg-red-600 text-white hover:bg-red-700'
+                                        ? 'bg-white text-green-700 hover:bg-green-100 btn btn-disabled'
+                                        : 'bg-green-600 text-white hover:bg-green-700'
                                         }`}
                                 >
                                     Details

@@ -11,7 +11,7 @@ const Header = () => {
     });
 
     return (
-        <header className="w-full bg-gray-100 border-b border-gray-400 px-4 py-2">
+        <header className="w-full bg-green-50 border-b border-gray-200 px-4 py-2">
 
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left - Social Icons + Date */}
@@ -19,9 +19,9 @@ const Header = () => {
                 <div className='flex flex-col items-center justify-center gap-3 text-xs md:text-base'>
 
                     <div className="flex items-center gap-4 text-gray-700">
-                        <FaFacebookF className="hover:text-red-600 cursor-pointer" />
-                        <FaTwitter className="hover:text-red-600 cursor-pointer" />
-                        <FaYoutube className="hover:text-red-600 cursor-pointer" />
+                        <FaFacebookF className="hover:text-green-600 cursor-pointer" />
+                        <FaTwitter className="hover:text-green-600 cursor-pointer" />
+                        <FaYoutube className="hover:text-green-600 cursor-pointer" />
                     </div>
                     <span className="md:text-sm text-xs  text-gray-500">{today}</span>
                 </div>

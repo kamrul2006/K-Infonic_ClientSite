@@ -58,7 +58,7 @@ const Navbar = ({ isAdmin }) => {
     );
 
     return (
-        <nav className="bg-white/70 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700">
+        <nav className="bg-white/70 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700  ">
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">

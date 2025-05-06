@@ -186,7 +186,7 @@ const SignupPage = () => {
                             </label>
                         </div>
 
-                        {error && <p className="text-sm text-red-500 text-center">{error}</p>}
+                        {error && <p className="text-sm text-green-500 text-center">{error}</p>}
                         {success && <p className="text-sm text-green-500 text-center">{success}</p>}
 
                         <button

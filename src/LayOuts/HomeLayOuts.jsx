@@ -1,8 +1,5 @@
 import React from 'react'
 import BannerSlider from '../Home/Banner'
-import AllArticles from '../AllArticles/AllArticles'
-import Login from '../Auth/Users/Login'
-import LoginPage from '../Auth/Users/Loginpage'
 import HomeStats from '../Home/HomeStats'
 import AllPublishers from '../Home/Allpublisher'
 

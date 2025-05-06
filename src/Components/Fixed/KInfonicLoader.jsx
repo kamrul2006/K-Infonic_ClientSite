@@ -5,14 +5,14 @@ const KInfonicLoader = () => {
         <div className="h-screen w-full flex items-center justify-center bg-white dark:bg-black">
             <div className="flex flex-col items-center justify-center space-y-6">
                 {/* Spinning ring */}
-                <div className="w-20 h-20 border-4 border-t-transparent border-red-500 rounded-full animate-spin relative">
+                <div className="w-20 h-20 border-4 border-t-transparent border-green-500 rounded-full animate-spin relative">
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <ImNewspaper className="text-3xl text-red-600 animate-pulse" />
+                        <ImNewspaper className="text-3xl text-green-600 animate-pulse" />
                     </div>
                 </div>
 
                 {/* Brand title */}
-                <h1 className="text-3xl md:text-4xl font-bold text-red-700 dark:text-red-500 tracking-wide">
+                <h1 className="text-3xl md:text-4xl font-bold text-green-700 dark:text-green-500 tracking-wide">
                     K-Infonic
                 </h1>
 
