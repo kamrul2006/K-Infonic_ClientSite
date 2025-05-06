@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 const banners = [
     {
         title: "Stay Informed, Stay Ahead",
-        subtitle: "Get the latest news tailored just for you.",
+        subtitle: "Get the latest news tailogreen just for you.",
     },
     {
         title: "Your Voice. Your News.",
         subtitle: "Write, share, and read trusted articles.",
     },
     {
-        title: "K-Infonic: Digital News Redefined",
+        title: "K-Infonic: Digital News greenefined",
         subtitle: "Where verified truth meets modern technology.",
     },
 ];
@@ -34,17 +34,17 @@ const BannerSlider = () => {
 
     return (
         <div
-            className="relative w-full h-screen bg-cover bg-center "
+            className="relative w-7xl mx-auto mt-2 md:mt-10 rounded-4xl h-screen bg-cover bg-center  p-2"
             style={{
                 backgroundImage:
                     "url('https://img.freepik.com/free-photo/top-view-newspaper-pieces-assortment_23-2149318830.jpg')",
             }}
         >
-            {/* Dark red gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-800/70 to-black/60 " />
+            {/* Dark green gradient overlay */}
+            <div className="absolute inset-0 backdrop-blur-md bg-black/50 rounded-4xl " />
 
 
-            <div className="text-center">
+            <div className="text-center rounded-4xl">
                 {/* Slider content */}
                 <Slider {...settings}>
                     {banners.map((slide, idx) => (
@@ -63,7 +63,7 @@ const BannerSlider = () => {
                                         {slide.subtitle}
                                     </p>
 
-                                    <Link to={"/all-articles"} className="mt-5 md:mt-10 px-8 py-3 rounded-full bg-white text-red-700 font-semibold shadow-xl hover:bg-red-100 hover:scale-105 transition-all duration-300">
+                                    <Link to={"/all-articles"} className="mt-5 md:mt-10 px-8 py-3 rounded-full bg-white text-green-700 font-semibold shadow-xl hover:bg-green-100 hover:scale-105 transition-all duration-300">
                                         Explore News
                                     </Link>
                                 </div>
