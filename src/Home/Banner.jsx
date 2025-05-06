@@ -63,7 +63,7 @@ const BannerSlider = () => {
                                         {slide.subtitle}
                                     </p>
 
-                                    <Link to={"/all-articles"} className="mt-5 md:mt-10 px-8 py-3 rounded-full bg-white text-green-700 font-semibold shadow-xl hover:bg-green-100 hover:scale-105 transition-all duration-300">
+                                    <Link to={"/all-articles"} className="mt-5 md:mt-10 px-8 py-3 rounded-full text-white bg-green-700 font-semibold shadow-xl hover:bg-green-100 hover:scale-105 transition-all duration-300">
                                         Explore News
                                     </Link>
                                 </div>

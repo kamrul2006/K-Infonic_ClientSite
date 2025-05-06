@@ -24,7 +24,7 @@ const stats = [
         title: 'Global Reach',
         value: 75,
         suffix: '+ Countries',
-        color: 'from-green-500 to-pink-600',
+        color: 'from-green-500 to-green-800',
     },
     {
         id: 4,
