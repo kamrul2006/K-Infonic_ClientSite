@@ -107,8 +107,8 @@ const SignupPage = () => {
             <div className="backdrop-blur shadow-xl rounded-lg flex flex-col text-white md:flex-row-reverse w-full max-w-4xl overflow-hidden">
                 {/* Left Side */}
                 <div className="w-full md:w-1/2 flex items-center justify-center flex-col p-3">
-                    <img src={ill} alt="Sign Up Illustration" className="max-w-full h-auto object-contain  w-20 md:w-80" />
-                    <Link to={'/'} className="btn btn-sm btn-success mt-2 md:mt-5">
+                    <img src={ill} alt="K-InfoNic" className="max-w-full h-auto object-contain md:w-44 w-20" />
+                    <Link to={'/'} className="btn btn-sm bg-green-500 mt-2 md:mt-5">
                         <FaHome className="mr-2" />
                         Back to Home</Link>
                 </div>
@@ -203,7 +203,7 @@ const SignupPage = () => {
                         <div className="flex justify-center gap-4 mt-2">
                             <button
                                 onClick={HandleGoogleLogin}
-                                className="w-full btn btn-success btn-sm text-green-900"
+                                className="w-full btn bg-green-500 btn-sm text-black"
                             >
                                 <FaGoogle className="mr-2" />
                                 Sign in with Google

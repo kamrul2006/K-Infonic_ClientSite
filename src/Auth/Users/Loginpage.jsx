@@ -93,7 +93,7 @@ const LoginPage = () => {
                 {/*----------------------- Left Side ------------------------*/}
                 <div className="w-full md:w-1/2 flex items-center justify-center flex-col p-3">
 
-                    <img src={ill} alt="K-InfoNic" className="max-w-full h-auto object-contain md:w-40 bg-white/50 p-3 rounded-3xl w-20 " />
+                    <img src={ill} alt="K-InfoNic" className="max-w-full h-auto object-contain md:w-40 w-20 " />
 
                     <Link to={'/'} className="btn btn-sm bg-green-500 mt-2 md:mt-5">
                         <FaHome className="mr-2" />
