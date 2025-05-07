@@ -40,14 +40,8 @@ const Navbar = ({ isAdmin }) => {
                     Subscription
                 </NavLink>
             </li>
+
             {user && (
-                <li>
-                    <NavLink to="/my-articles" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
-                        My Articles
-                    </NavLink>
-                </li>
-            )}
-            {user && isAdmin && (
                 <li>
                     <NavLink to="/dashboard" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
                         Dashboard
