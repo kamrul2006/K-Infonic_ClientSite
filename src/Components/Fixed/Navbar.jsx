@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
-import logo from '../../assets/reeek.png';
+import logo from '../../assets/reeee.png';
 import { AuthContext } from '../../Auth/Providers/AuthProvider';
 
 const Navbar = ({ isAdmin }) => {
@@ -58,7 +58,7 @@ const Navbar = ({ isAdmin }) => {
     );
 
     return (
-        <nav className="bg-white/70 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-zinc-700  ">
+        <nav className="bg-green-200/50 dark:bg-zinc-900 backdrop-blur-xl shadow-md sticky top-0 z-50 border-b border-b-neutral-300 dark:border-zinc-700  ">
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">
@@ -66,7 +66,7 @@ const Navbar = ({ isAdmin }) => {
                 </Link>
 
                 {/* Desktop Nav */}
-                <ul className="hidden font-semibold md:flex items-center space-x-6">{navLinks}</ul>
+                <ul className="hidden font-bold md:flex items-center space-x-6">{navLinks}</ul>
 
                 {/* Auth Buttons */}
                 <div className="hidden md:flex items-center gap-4">

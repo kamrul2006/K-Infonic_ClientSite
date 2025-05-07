@@ -1,5 +1,5 @@
 import { FaFacebookF, FaTwitter, FaYoutube, FaSearch } from 'react-icons/fa';
-import logo from '../../assets/reeef.png';
+import logo from '../../assets/reeee.png';
 
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
     });
 
     return (
-        <header className="w-full bg-green-50 border-b border-gray-200 px-4 py-2">
+        <header className="w-full  border-b border-gray-200 px-4 py-2">
 
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left - Social Icons + Date */}
@@ -30,7 +30,7 @@ const Header = () => {
                 <div className=" text-md md:text-4xl font-bold text-gray-900 tracking-wide py-3 flex items-center justify-center  md:gap-2">
                     <span className="text-gray-500">The</span>
                     <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-48 w-20  object-contain" />
-                    <span className="text-gray-500 text-xs mt-10 hidden md:block">The Digital Truth....</span>
+                    {/* <span className="text-gray-500 text-xs mt-10 hidden md:block">The Digital Truth....</span> */}
 
                 </div>
 

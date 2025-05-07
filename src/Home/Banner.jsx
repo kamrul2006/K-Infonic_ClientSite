@@ -34,14 +34,15 @@ const BannerSlider = () => {
 
     return (
         <div
-            className="relative w-7xl mx-auto mt-2 md:mt-10 rounded-4xl h-screen lg:h-[550px] bg-cover bg-center  p-2"
+            className="relative  mx-auto   h-[450px] lg:h-[550px] bg-cover bg-center  p-2 rounded-3xl"
             style={{
                 backgroundImage:
                     "url('https://img.freepik.com/free-photo/top-view-newspaper-pieces-assortment_23-2149318830.jpg')",
+                backgroundSize: "cover"
             }}
         >
             {/* Dark green gradient overlay */}
-            <div className="absolute inset-0 backdrop-blur-md bg-green-950/60 rounded-4xl " />
+            <div className="absolute inset-0  bg-black/20  rounded-3xl" />
 
 
             <div className="text-center rounded-4xl">
@@ -54,16 +55,16 @@ const BannerSlider = () => {
                                 className="relative z-20 h-[90vh] flex items-center justify-center px-6 md:px-12"
                             >
 
-                                <div className="text-center text-white space-y-6 max-w-3xl animate-fade-in-up">
-                                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg leading-tight font-serif">
+                                <div className="text-center text-black space-y-6 max-w-3xl animate-fade-in-up">
+                                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight drop-shadow-lg leading-tight font-serif">
                                         {slide.title}
                                     </h2>
 
-                                    <p className="text-lg md:text-xl font-medium text-gray-200 opacity-95 md:mb-10">
+                                    <p className=" md:text-xl font-medium text-gray-700 opacity-95 md:mb-10">
                                         {slide.subtitle}
                                     </p>
 
-                                    <Link to={"/all-articles"} className="mt-5 md:mt-10 px-8 py-3 rounded-full text-white bg-green-700 font-semibold shadow-xl hover:bg-green-100 hover:text-green-800 hover:scale-105 transition-all duration-300">
+                                    <Link to={"/all-articles"} className="mt- md:mt-10 px-4 md:px-8 md:py-3 py-1 rounded-full text-white bg-green-700 font-semibold shadow-xl hover:bg-green-100 hover:text-green-800 hover:scale-105 transition-all duration-300">
                                         Explore News
                                     </Link>
                                 </div>
