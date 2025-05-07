@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const tagOptions = [
     { value: "Politics", label: "Politics" },
@@ -12,6 +13,15 @@ const tagOptions = [
     { value: "Inspiration", label: "Inspiration" },
 ];
 
+const categoryOptions = [
+    "Politics",
+    "Technology",
+    "Sports",
+    "Business",
+    "Science",
+    "Inspiration",
+];
+
 const AddArticle = () => {
     const [publishers, setPublishers] = useState([]);
     const [formData, setFormData] = useState({
@@ -19,15 +29,17 @@ const AddArticle = () => {
         image: "",
         publisher: "",
         tags: [],
+        category: "",
         description: "",
     });
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/publishers")
-            .then(res => setPublishers(res.data))
-            .catch(err => console.error("Error fetching publishers:", err));
+        axios
+            .get("http://localhost:5000/publishers")
+            .then((res) => setPublishers(res.data))
+            .catch((err) => console.error("Error fetching publishers:", err));
     }, []);
 
     const handleSubmit = async (e) => {
@@ -35,77 +47,119 @@ const AddArticle = () => {
 
         const articleData = {
             ...formData,
-            tags: formData.tags.map(tag => tag.value),
+            tags: formData.tags.map((tag) => tag.value),
             type: "general",
             status: "pending",
-            viewCount: 0
+            viewCount: 0,
         };
 
         try {
             await axios.post("http://localhost:5000/News", articleData);
-            alert("Article submitted for approval.");
-            navigate("/all-articles");
+            Swal.fire({
+                icon: "success",
+                title: "Submitted!",
+                text: "Article submitted for admin approval.",
+                confirmButtonColor: "#d33",
+            }).then(() => navigate("/all-articles"));
         } catch (err) {
             console.error("Submission error:", err);
-            alert("Failed to submit article.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Failed to submit article.",
+                confirmButtonColor: "#d33",
+            });
         }
     };
 
     return (
-        <section className="max-w-3xl mx-auto px-4 py-10">
-            <h2 className="text-3xl font-bold text-red-600 mb-6 text-center">Add New Article</h2>
+        <section className="max-w-3xl mx-auto px-6 py-10 bg-gradient-to-br from-green-50 via-white to-green-100 shadow-2xl rounded-2xl">
+            <h2 className="text-4xl font-bold text-center text-green-600 mb-8 tracking-wide">
+                Add New Article
+            </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-xl shadow-md border border-red-200">
+            <form onSubmit={handleSubmit} className="space-y-6">
                 <input
                     type="text"
-                    placeholder="Title"
-                    className="w-full p-3 border rounded-lg"
+                    placeholder="Article Title"
+                    className="w-full p-4 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500"
                     value={formData.title}
-                    onChange={e => setFormData({ ...formData, title: e.target.value })}
-                    required
+                    onChange={(e) =>
+                        setFormData({ ...formData, title: e.target.value })
+                    }
+                    requigreen
                 />
 
                 <input
                     type="text"
                     placeholder="Image URL"
-                    className="w-full p-3 border rounded-lg"
+                    className="w-full p-4 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500"
                     value={formData.image}
-                    onChange={e => setFormData({ ...formData, image: e.target.value })}
-                    required
+                    onChange={(e) =>
+                        setFormData({ ...formData, image: e.target.value })
+                    }
+                    requigreen
                 />
 
-                <select
-                    className="w-full p-3 border rounded-lg"
-                    value={formData.publisher}
-                    onChange={e => setFormData({ ...formData, publisher: e.target.value })}
-                    required
-                >
-                    <option value="">Select Publisher</option>
-                    {publishers.map(pub => (
-                        <option key={pub.id} value={pub.name}>{pub.name}</option>
-                    ))}
-                </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <select
+                        className="w-full p-4 border border-green-300 rounded-lg bg-white focus:ring-2 focus:ring-green-500"
+                        value={formData.publisher}
+                        onChange={(e) =>
+                            setFormData({ ...formData, publisher: e.target.value })
+                        }
+                        requigreen
+                    >
+                        <option value="">Select Publisher</option>
+                        {publishers.map((pub) => (
+                            <option key={pub.id} value={pub.name}>
+                                {pub.name}
+                            </option>
+                        ))}
+                    </select>
+
+                    <select
+                        className="w-full p-4 border border-green-300 rounded-lg bg-white focus:ring-2 focus:ring-green-500"
+                        value={formData.category}
+                        onChange={(e) =>
+                            setFormData({ ...formData, category: e.target.value })
+                        }
+                        requigreen
+                    >
+                        <option value="">Select Category</option>
+                        {categoryOptions.map((cat, i) => (
+                            <option key={i} value={cat}>
+                                {cat}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
                 <Select
                     options={tagOptions}
                     isMulti
-                    placeholder="Select tags"
+                    placeholder="Select tags..."
                     value={formData.tags}
-                    onChange={selected => setFormData({ ...formData, tags: selected })}
+                    onChange={(selected) =>
+                        setFormData({ ...formData, tags: selected })
+                    }
+                    className="text-sm"
                 />
 
                 <textarea
                     rows="6"
-                    placeholder="Description"
-                    className="w-full p-3 border rounded-lg"
+                    placeholder="Write article description..."
+                    className="w-full p-4 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500"
                     value={formData.description}
-                    onChange={e => setFormData({ ...formData, description: e.target.value })}
-                    required
+                    onChange={(e) =>
+                        setFormData({ ...formData, description: e.target.value })
+                    }
+                    requigreen
                 />
 
                 <button
                     type="submit"
-                    className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition"
+                    className="w-full bg-green-600 hover:bg-green-700 transition text-white font-semibold py-3 rounded-lg shadow-lg"
                 >
                     Submit Article
                 </button>

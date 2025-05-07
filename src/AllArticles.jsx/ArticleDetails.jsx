@@ -86,7 +86,7 @@ const ArticleDetails = () => {
                     <div className="grid md:grid-cols-3 gap-6">
                         {related.map(item => (
                             <Link
-                                to={`/article/${item.id}`}
+                                to={`/article/${item._id}`}
                                 key={item.id}
                                 className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 border border-gray-100"
                             >
