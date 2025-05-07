@@ -6,6 +6,7 @@ import LoginPage from "./Auth/Users/Loginpage";
 import PrivetRout from "./Auth/Privet/Privetrought";
 import AllArticles from "./AllArticles.jsx/AllArticles";
 import ArticleDetails from "./AllArticles.jsx/ArticleDetails";
+import AddArticle from "./AllArticles.jsx/AddArticle";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: "/all-articles",
                 element: <PrivetRout><AllArticles /></PrivetRout>
+            },
+            {
+                path: "/add-article",
+                element: <PrivetRout><AddArticle /></PrivetRout>
             },
             {
                 path: `/article/:id`,
