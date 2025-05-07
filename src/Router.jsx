@@ -5,6 +5,7 @@ import { HomeLayOuts } from "./LayOuts/HomeLayOuts";
 import LoginPage from "./Auth/Users/Loginpage";
 import PrivetRout from "./Auth/Privet/Privetrought";
 import AllArticles from "./AllArticles.jsx/AllArticles";
+import ArticleDetails from "./AllArticles.jsx/ArticleDetails";
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
             {
                 path: "/all-articles",
                 element: <PrivetRout><AllArticles /></PrivetRout>
+            },
+            {
+                path: `/article/:id`,
+                element: <PrivetRout><ArticleDetails /></PrivetRout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/News/${params.id}`)
             },
         ]
     },
