@@ -7,6 +7,7 @@ import PrivetRout from "./Auth/Privet/Privetrought";
 import AllArticles from "./AllArticles.jsx/AllArticles";
 import ArticleDetails from "./AllArticles.jsx/ArticleDetails";
 import AddArticle from "./AllArticles.jsx/AddArticle";
+import SignupPage from "./Auth/Users/SignupPage";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <LoginPage />
+    },
+    {
+        path: "/register",
+        element: <SignupPage />
     },
 ]);
 

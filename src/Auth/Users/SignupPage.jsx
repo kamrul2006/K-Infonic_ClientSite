@@ -4,9 +4,10 @@ import { FaEye, FaEyeSlash, FaFacebook, FaGithub, FaGoogle, FaHome } from "react
 import { sendEmailVerification } from "firebase/auth";
 import { AuthContext } from "../Providers/AuthProvider";
 import { auth } from "../FireBase/firebase.init";
-import bg from "../../assets/SignUpBg.png";
-import ill from "../../assets/llg.jpg";
+import bg from "../../assets/lbgg.jpg";
+import ill from "../../assets/logo.png";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+
 
 
 const SignupPage = () => {
@@ -54,7 +55,7 @@ const SignupPage = () => {
                     isSubscribed: false
                 };
 
-                axiosPublic.post("/users", UserInfo).then((res) => {
+                axiosPublic.post("/Users", UserInfo).then((res) => {
                     if (res.data.insertedId) {
                         setSuccess("Sign Up Successful.");
                     }
@@ -100,14 +101,14 @@ const SignupPage = () => {
 
     return (
         <div
-            className="bg-center bg-cover px-6 py-10 min-h-screen flex items-center justify-center"
-            style={{ background: `url(${bg})` }}
+            className="  flex items-center justify-center min-h-screen py-10 bg-cover md:bg-center"
+            style={{ background: `url(${bg})`, backgroundSize: "cover" }}
         >
-            <div className="backdrop-blur shadow-xl rounded-lg flex flex-col md:flex-row-reverse w-full max-w-4xl overflow-hidden">
+            <div className="backdrop-blur shadow-xl rounded-lg flex flex-col text-white md:flex-row-reverse w-full max-w-4xl overflow-hidden">
                 {/* Left Side */}
                 <div className="w-full md:w-1/2 flex items-center justify-center flex-col p-3">
-                    <img src={ill} alt="Sign Up Illustration" className="max-w-full h-auto object-contain rounded-full w-20 md:w-80" />
-                    <Link to={'/'} className="btn btn-sm btn-info mt-2 md:mt-5">
+                    <img src={ill} alt="Sign Up Illustration" className="max-w-full h-auto object-contain  w-20 md:w-80" />
+                    <Link to={'/'} className="btn btn-sm btn-success mt-2 md:mt-5">
                         <FaHome className="mr-2" />
                         Back to Home</Link>
                 </div>
@@ -125,7 +126,7 @@ const SignupPage = () => {
                                 type="text"
                                 id="name"
                                 name="name"
-                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-green-400 focus:border-green-400"
                                 placeholder="First name + Last name"
                                 required
                             />
@@ -139,7 +140,7 @@ const SignupPage = () => {
                                 type="text"
                                 id="photo"
                                 name="photo"
-                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-green-400 focus:border-green-400"
                                 placeholder="Photo URL Link"
                                 required
                             />
@@ -153,7 +154,7 @@ const SignupPage = () => {
                                 type="email"
                                 id="email"
                                 name="email"
-                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-green-400 focus:border-green-400"
                                 placeholder="Email"
                                 required
                             />
@@ -167,7 +168,7 @@ const SignupPage = () => {
                                 type={show ? "text" : "password"}
                                 id="password"
                                 name="password"
-                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-green-400 focus:border-green-400"
                                 placeholder="Password"
                                 required
                             />
@@ -180,18 +181,18 @@ const SignupPage = () => {
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <input type="checkbox" name="terms" className="checkbox checkbox-info" />
-                            <label className="text-sm text-blue-500 cursor-pointer">
+                            <input type="checkbox" name="terms" className="checkbox checkbox-success" />
+                            <label className="text-sm text-green-500 cursor-pointer">
                                 Accept all terms and conditions
                             </label>
                         </div>
 
-                        {error && <p className="text-sm text-green-500 text-center">{error}</p>}
+                        {error && <p className="text-sm text-red-500 text-center">{error}</p>}
                         {success && <p className="text-sm text-green-500 text-center">{success}</p>}
 
                         <button
                             type="submit"
-                            className="w-full py-2 bg-blue-400 hover:bg-blue-500 text-white font-medium rounded-md"
+                            className="w-full py-2 bg-green-400 hover:bg-green-500 text-white font-medium rounded-md"
                         >
                             Sign Up
                         </button>
@@ -202,7 +203,7 @@ const SignupPage = () => {
                         <div className="flex justify-center gap-4 mt-2">
                             <button
                                 onClick={HandleGoogleLogin}
-                                className="w-full btn btn-info btn-sm text-blue-900"
+                                className="w-full btn btn-success btn-sm text-green-900"
                             >
                                 <FaGoogle className="mr-2" />
                                 Sign in with Google
@@ -212,7 +213,7 @@ const SignupPage = () => {
 
                     <p className="text-center mt-4">
                         Already have an account?{" "}
-                        <Link to="/logIn" className="text-blue-500 hover:underline">
+                        <Link to="/logIn" className="text-green-500 hover:underline">
                             Log in
                         </Link>
                     </p>
