@@ -8,6 +8,7 @@ import AllArticles from "./AllArticles.jsx/AllArticles";
 import ArticleDetails from "./AllArticles.jsx/ArticleDetails";
 import AddArticle from "./AllArticles.jsx/AddArticle";
 import SignupPage from "./Auth/Users/SignupPage";
+import AboutUs from "./AboutUs/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,8 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <HomeLayOuts />
             },
+
+            //-----------all article related-------------
             {
                 path: "/all-articles",
                 element: <PrivetRout><AllArticles /></PrivetRout>
@@ -33,6 +36,13 @@ const router = createBrowserRouter([
                 element: <PrivetRout><ArticleDetails /></PrivetRout>,
                 loader: ({ params }) => fetch(`http://localhost:5000/News/${params.id}`)
             },
+
+            //-----------about us related-------------
+            {
+                path: "/AboutUs",
+                element: <AboutUs />
+            },
+
         ]
     },
     {

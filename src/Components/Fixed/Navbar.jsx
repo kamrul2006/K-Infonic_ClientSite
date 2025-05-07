@@ -35,9 +35,14 @@ const Navbar = ({ isAdmin }) => {
                     All Articles
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink to="/subscription" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
                     Subscription
+                </NavLink>
+            </li> */}
+            <li>
+                <NavLink to="/AboutUs" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    About Us
                 </NavLink>
             </li>
 
