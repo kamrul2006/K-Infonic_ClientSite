@@ -5,6 +5,7 @@ import AllPublishers from '../Home/Allpublisher'
 import TrendingArticles from '../Home/TrendingArticles'
 import Plans from '../Home/Plans'
 import NewsSidebar from '../Home/NewsSidebar'
+import ReaderReview from '../Home/ReaderReview'
 
 export const HomeLayOuts = () => {
     return (
@@ -32,8 +33,11 @@ export const HomeLayOuts = () => {
 
                 <HomeStats />
 
+
                 <Plans />
 
+
+                <ReaderReview />
 
             </div>
         </div>
