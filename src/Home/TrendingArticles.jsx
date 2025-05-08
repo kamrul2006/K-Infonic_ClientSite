@@ -19,10 +19,12 @@ const TrendingArticles = () => {
     }, []);
 
     return (
-        <div className="bg-green-100 mt-5 rounded-2xl py-10 px-4 md:px-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-8">
-                🔥 Trending Articles
+        <div className="bg-gradient-to-b from-green-100 to-white mt-5 rounded-2xl py-10 px-4 md:px-10 ">
+
+            <h2 className="text-4xl text-center md:text-5xl font-extrabold mb-4 lg:mb-6">
+                Trending <span className="text-green-600">Articles</span>
             </h2>
+
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={10}
@@ -38,9 +40,9 @@ const TrendingArticles = () => {
             >
                 {articles.map(article => (
                     <SwiperSlide key={article.id}>
-                        <div className="bg-white  shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                        <div className="bg-white  shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ">
                             <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
-                            <div className="p-4">
+                            <div className="p-4  border-b border-green-500">
                                 <span className="text-xs text-green-500 uppercase font-bold">{article.category}</span>
 
                                 <h3 className="text-lg font-semibold mt-1 h-[55px]">{article.title}</h3>

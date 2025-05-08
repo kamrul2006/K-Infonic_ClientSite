@@ -1,5 +1,6 @@
 import { FaFacebookF, FaTwitter, FaYoutube, FaSearch } from 'react-icons/fa';
 import logo from '../../assets/reeej.png';
+import Marquee from "react-fast-marquee";
 
 
 const Header = () => {
@@ -20,6 +21,18 @@ const Header = () => {
                 <div className=" text-md md:text-4xl font-bold text-gray-900 tracking-wide py-3 flex items-center justify-center  md:gap-2">
                     <span className="text-gray-500">The</span>
                     <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-56 w-20  object-contain" />
+                </div>
+
+                <div className='md:flex border border-green-400'>
+                    <div className='bg-green-500  px-2'>
+                        Top news
+                    </div>
+
+                    <div className='max-w-2xl hidden md:block'>
+                        <Marquee className='gap-5'>
+                            ভারত-পাক সঙ্ঘাতে বাংলাদেশের অবস্থান কী হবে? দেশ দু’টির সাথে বাংলাদেশের সম্পর্ক ‘স্পর্শকাতর’ অবস্থায় রয়েছে বলে বিশ্লেষকেরা ভাবছেন।
+                        </Marquee>
+                    </div>
                 </div>
 
                 {/* right - Social Icons + Date */}
