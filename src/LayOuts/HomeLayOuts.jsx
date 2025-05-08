@@ -6,6 +6,7 @@ import TrendingArticles from '../Home/TrendingArticles'
 import Plans from '../Home/Plans'
 import NewsSidebar from '../Home/NewsSidebar'
 import ReaderReview from '../Home/ReaderReview'
+import Dashboard from '../Profiles/Dashboard'
 
 export const HomeLayOuts = () => {
     return (
@@ -38,6 +39,8 @@ export const HomeLayOuts = () => {
 
 
                 <ReaderReview />
+
+                <Dashboard />
 
             </div>
         </div>

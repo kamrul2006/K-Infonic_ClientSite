@@ -9,6 +9,7 @@ import ArticleDetails from "./AllArticles.jsx/ArticleDetails";
 import AddArticle from "./AllArticles.jsx/AddArticle";
 import SignupPage from "./Auth/Users/SignupPage";
 import AboutUs from "./AboutUs/AboutUs";
+import ProfileLayout from "./LayOuts/ProfileLayout";
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
     {
         path: "/register",
         element: <SignupPage />
+    },
+    {
+        path: "/profile",
+        element: <ProfileLayout />
     },
 ]);
 

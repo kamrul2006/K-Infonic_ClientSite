@@ -23,7 +23,7 @@ const Header = () => {
                     <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-56 w-20  object-contain" />
                 </div>
 
-                <div className='md:flex border border-green-400'>
+                <div className=' hidden md:flex border border-green-400'>
                     <div className='bg-green-500  px-2'>
                         Top news
                     </div>
@@ -39,11 +39,12 @@ const Header = () => {
 
                 <div className='flex flex-col items-center justify-center gap-3 text-xs md:text-base'>
 
-                    <div className="flex items-center gap-4 text-gray-700">
+                    <div className="hidden md:flex items-center gap-4 text-gray-700">
                         <FaFacebookF className="hover:text-green-600 cursor-pointer" />
                         <FaTwitter className="hover:text-green-600 cursor-pointer" />
                         <FaYoutube className="hover:text-green-600 cursor-pointer" />
                     </div>
+
                     <span className="md:text-sm text-xs  text-gray-500">{today}</span>
                 </div>
 

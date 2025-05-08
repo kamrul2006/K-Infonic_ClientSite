@@ -48,8 +48,8 @@ const Navbar = ({ isAdmin }) => {
 
             {user && (
                 <li>
-                    <NavLink to="/dashboard" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
-                        Dashboard
+                    <NavLink to="/profile" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                        My Profile
                     </NavLink>
                 </li>
             )}
@@ -98,7 +98,7 @@ const Navbar = ({ isAdmin }) => {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <button onClick={toggleMenu} className="md:hidden text-2xl text-gray-800 dark:text-gray-100">
+                <button onClick={toggleMenu} className="md:hidden text-2xl text-gray-800 dark:text-gray-100 z-50 ">
                     {isOpen ? <FaTimes /> : <FaBars />}
                 </button>
             </div>
@@ -116,7 +116,7 @@ const Navbar = ({ isAdmin }) => {
                                     <span>{user.displayName}</span>
                                 </div>
                                 <button
-                                    onClick={handleLogout}
+                                    onClick={UserSignOut}
                                     className="mt-2 text-green-600 hover:underline"
                                 >
                                     Logout
