@@ -11,6 +11,7 @@ import SignupPage from "./Auth/Users/SignupPage";
 import AboutUs from "./AboutUs/AboutUs";
 import ProfileLayout from "./LayOuts/ProfileLayout";
 import MyProfile from "./Profiles/MyProfile";
+import MyArticles from "./Profiles/MyArticals";
 
 
 const router = createBrowserRouter([
@@ -62,7 +63,11 @@ const router = createBrowserRouter([
             {
                 path: "/profilePage",
                 element: <PrivetRout><MyProfile /></PrivetRout>,
-            }
+            },
+            {
+                path: "/profilePage/user/my-articles",
+                element: <PrivetRout><MyArticles /></PrivetRout>,
+            },
         ]
     },
 ]);

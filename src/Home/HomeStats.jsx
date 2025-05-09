@@ -40,7 +40,7 @@ const HomeStats = () => {
     return (
         <section className="bg-gradient-to-b from-green-950 via-green-900 to-green-800 py-16 px-4 md:rounded-2xl md:mt-5">
             <div className="max-w-7xl mx-auto text-center text-white">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-md">
+                <h2 className="text-4xl font-serif md:text-5xl font-extrabold mb-4 drop-shadow-md">
                     Platform <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-green-500">Statistics</span>
                 </h2>
                 <p className="text-green-200 mb-12 max-w-xl mx-auto text-lg">

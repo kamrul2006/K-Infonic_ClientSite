@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Auth/Providers/AuthProvider";
 
 const tagOptions = [
     { value: "Politics", label: "Politics" },
@@ -23,6 +24,7 @@ const categoryOptions = [
 ];
 
 const AddArticle = () => {
+    const { user } = useContext(AuthContext)
     const [publishers, setPublishers] = useState([]);
     const [formData, setFormData] = useState({
         title: "",
@@ -51,6 +53,7 @@ const AddArticle = () => {
             type: "general",
             status: "pending",
             viewCount: 0,
+            AddedBy: user.email
         };
 
         try {
