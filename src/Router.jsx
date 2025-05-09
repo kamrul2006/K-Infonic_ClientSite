@@ -13,6 +13,7 @@ import ProfileLayout from "./LayOuts/ProfileLayout";
 import MyProfile from "./Profiles/MyProfile";
 import MyArticles from "./Profiles/MyArticals";
 import MyReviews from "./Profiles/MyReviews";
+import Subscription from "./Profiles/Subscription";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             {
                 path: "/profilePage/user/reviews",
                 element: <PrivetRout><MyReviews /></PrivetRout>,
+            },
+            {
+                path: "/profilePage/user/subscription",
+                element: <PrivetRout><Subscription /></PrivetRout>,
             },
         ]
     },

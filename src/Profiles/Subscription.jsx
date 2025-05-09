@@ -1,39 +1,88 @@
+import { useContext, useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-
-const plans = [
-    {
-        name: "Free",
-        price: "$0",
-        features: ["Read public articles", "Submit reviews", "Basic profile"],
-        color: "border-gray-300 text-gray-700 bg-white",
-    },
-    {
-        name: "Premium",
-        price: "$9.99/mo",
-        features: ["All Free features", "Post articles", "Priority support"],
-        color: "border-yellow-400 text-yellow-800 bg-yellow-50",
-    },
-    {
-        name: "Pro",
-        price: "$19.99/mo",
-        features: [
-            "All Premium features",
-            "Article analytics",
-            "Team management",
-            "Early access to new tools",
-        ],
-        color: "border-green-500 text-green-800 bg-green-50",
-    },
-];
+import Swal from "sweetalert2";
+import axios from "axios";
+import { AuthContext } from "../Auth/Providers/AuthProvider";
 
 const Subscription = () => {
+    const { user } = useContext(AuthContext);
+    const [profile, setProfile] = useState(null);
+
+    useEffect(() => {
+        if (user?.email) {
+            axios.get("http://localhost:5000/Users")
+                .then(res => {
+                    const matchedUser = res.data.find(item => item.email === user.email);
+                    setProfile(matchedUser);
+                });
+        }
+    }, [user]);
+
+    const handleSubscribe = () => {
+        Swal.fire({
+            title: "Subscribe to Pro Plan?",
+            text: "You’ll be charged $19.99/month",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonText: "Pay Now",
+            confirmButtonColor: "#10b981",
+        }).then(result => {
+            if (result.isConfirmed) {
+                axios.patch(`http://localhost:5000/Users/${profile._id}`, { isSubscribed: true })
+                    .then(() => {
+                        Swal.fire("Success!", "You are now a Pro subscriber!", "success");
+                        setProfile(prev => ({ ...prev, isSubscribed: true }));
+                    })
+                    .catch(() => {
+                        Swal.fire("Error", "Subscription failed. Try again.", "error");
+                    });
+            }
+        });
+    };
+
+    if (!profile) return null;
+
+    if (profile.isSubscribed) {
+        return (
+            <section className="max-w-4xl mx-auto px-4 py-20">
+                <div className="bg-green-100 border border-green-300 rounded-3xl p-8 text-center shadow-xl">
+                    <h2 className="text-3xl font-bold text-green-700 mb-4">🎉 You’re a Pro Member!</h2>
+                    <p className="text-green-800 mb-6">
+                        Thanks for subscribing! Enjoy unlimited features, analytics, and early access to tools.
+                    </p>
+                    <div className="inline-block px-6 py-2 bg-green-600 text-white rounded-full font-semibold shadow hover:bg-green-700 transition">
+                        Active Subscription
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    const plans = [
+        {
+            name: "Free",
+            price: "$0",
+            features: ["Read public articles", "Submit reviews", "Basic profile"],
+            color: "border-gray-300 text-gray-700 bg-white",
+        },
+        {
+            name: "Pro",
+            price: "$19.99/mo",
+            features: [
+                "All Free features",
+                "Post articles",
+                "Priority support",
+                "Analytics & early tools"
+            ],
+            color: "border-green-500 text-green-800 bg-green-50",
+        },
+    ];
+
     return (
         <section className="max-w-6xl mx-auto px-4 py-16">
-            <h2 className="text-4xl font-bold text-center mb-10 text-green-700">
-                Choose Your Plan
-            </h2>
+            <h2 className="text-4xl font-bold text-center mb-10 text-green-700">Choose Your Plan</h2>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-2">
                 {plans.map((plan, index) => (
                     <div
                         key={index}
@@ -49,11 +98,11 @@ const Subscription = () => {
                             ))}
                         </ul>
                         <button
+                            disabled={plan.name === "Free"}
+                            onClick={handleSubscribe}
                             className={`w-full py-2 px-4 rounded-lg font-semibold transition ${plan.name === "Free"
-                                    ? "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                                    : plan.name === "Premium"
-                                        ? "bg-yellow-400 text-white hover:bg-yellow-500"
-                                        : "bg-green-600 text-white hover:bg-green-700"
+                                ? "bg-gray-200 text-gray-800 cursor-not-allowed"
+                                : "bg-green-600 text-white hover:bg-green-700"
                                 }`}
                         >
                             {plan.name === "Free" ? "Current Plan" : "Subscribe Now"}
