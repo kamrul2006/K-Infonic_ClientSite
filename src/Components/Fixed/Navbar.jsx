@@ -48,7 +48,7 @@ const Navbar = ({ isAdmin }) => {
 
             {user && (
                 <li>
-                    <NavLink to="/profile" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    <NavLink to="/profilePage" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
                         My Profile
                     </NavLink>
                 </li>

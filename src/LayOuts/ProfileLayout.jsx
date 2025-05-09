@@ -1,5 +1,6 @@
 import React from 'react'
 import UserSidebar from '../Profiles/UserSidebar'
+import { Outlet } from 'react-router-dom'
 
 const ProfileLayout = () => {
     return (
@@ -7,7 +8,7 @@ const ProfileLayout = () => {
             <div className="flex">
                 <UserSidebar />
                 <main className="flex-1 p-6 bg-gray-50 min-h-screen">
-                    hi
+                    <Outlet />
                 </main>
             </div>
         </div>

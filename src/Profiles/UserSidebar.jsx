@@ -5,60 +5,78 @@ import {
     FaStar,
     FaCrown,
     FaSignOutAlt,
+    FaBars,
+    FaTimes,
 } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { BiHome } from "react-icons/bi";
+import { AuthContext } from "../Auth/Providers/AuthProvider";
 
 const UserSidebar = () => {
-    const linkClasses = "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 transition";
+    const { user, UserSignOut } = useContext(AuthContext)
+
+    const [open, setOpen] = useState(false);
+    const linkClasses =
+        "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-green-100 text-gray-700 transition duration-200";
+
+    const links = [
+        { to: "/", label: "Back to Home Page", icon: <BiHome /> },
+        { to: "/profilePage", label: "Profile", icon: <FaUser /> },
+        { to: "/profilePage/user/my-articles", label: "My Articles", icon: <FaNewspaper /> },
+        { to: "/profilePage/user/reviews", label: "My Reviews", icon: <FaStar /> },
+        { to: "/profilePage/user/subscription", label: "Subscription", icon: <FaCrown /> },
+        // { to: "/logout", label: "Logout", icon: <FaSignOutAlt /> },
+    ];
 
     return (
-        <aside className="w-64 bg-white shadow-md border-r min-h-screen p-6 hidden md:block">
-            <h2 className="text-2xl font-bold text-red-600 mb-8 text-center">User Panel</h2>
+        <>
+            {/* Mobile Navbar */}
+            <div className="md:hidden bg-white shadow px-4 py-3 flex justify-between items-center">
+                <h2 className="text-xl hidden md:block font-bold text-green-600">User Panel</h2>
+                <button onClick={() => setOpen(!open)}>
+                    {open ? <FaTimes size={24} /> : <FaBars size={24} />}
+                </button>
+            </div>
 
-            <nav className="space-y-4">
-                <NavLink
-                    to="/user/profile"
-                    className={({ isActive }) =>
-                        `${linkClasses} ${isActive ? "bg-red-100 font-semibold" : ""}`
-                    }
-                >
-                    <FaUser /> Profile
-                </NavLink>
+            {/* Sidebar */}
+            <aside
+                className={`fixed md:static top-0 left-0 h-screen z-40 transform ${open ? "translate-x-0" : "-translate-x-full"
+                    } md:translate-x-0 transition-transform duration-300 bg-white w-64 shadow-md border-r p-6`}
+            >
+                <h2 className="text-2xl font-bold text-green-600 mb-8 hidden md:block text-center">
+                    User Panel
+                </h2>
 
-                <NavLink
-                    to="/user/my-articles"
-                    className={({ isActive }) =>
-                        `${linkClasses} ${isActive ? "bg-red-100 font-semibold" : ""}`
-                    }
-                >
-                    <FaNewspaper /> My Articles
-                </NavLink>
+                <nav className="space-y-4">
+                    {links.map(({ to, label, icon }) => (
 
-                <NavLink
-                    to="/user/reviews"
-                    className={({ isActive }) =>
-                        `${linkClasses} ${isActive ? "bg-red-100 font-semibold" : ""}`
-                    }
-                >
-                    <FaStar /> My Reviews
-                </NavLink>
+                        <NavLink
+                            key={to}
+                            to={to}
+                            onClick={() => setOpen(false)}
+                            className={({ isActive }) =>
+                                `${linkClasses} ${isActive ? "bg-green-100 font-semibold" : ""}`
+                            }
+                        >
+                            {icon} {label}
+                        </NavLink>
 
-                <NavLink
-                    to="/user/subscription"
-                    className={({ isActive }) =>
-                        `${linkClasses} ${isActive ? "bg-red-100 font-semibold" : ""}`
-                    }
-                >
-                    <FaCrown /> Subscription
-                </NavLink>
+                    ))}
+                </nav>
 
-                <NavLink
-                    to="/logout"
-                    className={linkClasses}
-                >
-                    <FaSignOutAlt /> Logout
-                </NavLink>
-            </nav>
-        </aside>
+                <button onClick={UserSignOut} className="text-center btn w-full mx-auto mt-4">
+                    <FaSignOutAlt />     Log Out
+                </button>
+            </aside>
+
+            {/* Overlay for mobile menu */}
+            {open && (
+                <div
+                    onClick={() => setOpen(false)}
+                    className="fixed inset-0 bg-black/40 z-30 md:hidden"
+                ></div>
+            )}
+        </>
     );
 };
 

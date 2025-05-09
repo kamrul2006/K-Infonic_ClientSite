@@ -40,7 +40,7 @@ export const HomeLayOuts = () => {
 
                 <ReaderReview />
 
-                <Dashboard />
+                {/* <Dashboard /> */}
 
             </div>
         </div>
