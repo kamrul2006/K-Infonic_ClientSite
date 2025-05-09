@@ -21,7 +21,7 @@ const TrendingArticles = () => {
     return (
         <div className="bg-gradient-to-b from-green-100 to-white mt-5 rounded-2xl py-10 px-4 md:px-10 ">
 
-            <h2 className="text-4xl text-center md:text-5xl font-extrabold mb-4 lg:mb-6">
+            <h2 className="text-4xl font-serif text-center md:text-5xl font-extrabold mb-4 lg:mb-6">
                 Trending <span className="text-green-600">Articles</span>
             </h2>
 

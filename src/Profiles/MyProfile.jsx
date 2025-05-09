@@ -3,12 +3,11 @@ import { FaEdit } from "react-icons/fa";
 import { AuthContext } from "../Auth/Providers/AuthProvider";
 import axios from "axios";
 import KInfonicLoader from "../Components/Fixed/KInfonicLoader";
+import logo from "../assets/reeej.png"
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext);
-    const [profile, setProfile] = useState(null); // use null initially
-
-    // console.log(user)
+    const [profile, setProfile] = useState(null);
 
     useEffect(() => {
         if (user?.email) {
@@ -30,43 +29,54 @@ const MyProfile = () => {
     }
 
     return (
-        <section className="max-w-5xl mx-auto p-6 md:p-10">
-            <div className="bg-gradient-to-r from-green-100 via-white to-green-50 border border-green-200 shadow-xl lg:h-[500px] rounded-3xl overflow-hidden">
-                <div className="grid md:grid-cols-3 gap-6 items-center p-6 md:p-10">
-                    {/* Profile Image */}
-                    <div className="flex justify-center md:justify-start">
+        <section className="max-w-6xl mx-auto px-4 py-10">
+            <div className="flex flex-col lg:flex-row bg-gradient-to-r from-white to-green-50 rounded-3xl shadow-2xl overflow-hidden border border-green-100">
+
+                {/* Left: Profile Info */}
+                <div className="w-full lg:w-2/3 p-8 lg:p-12 space-y-6">
+                    <div className="flex items-center gap-6">
                         <img
-                            src={user.photoURL ? user.photoURL : "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png"}
+                            src={user.photoURL || "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png"}
                             alt="User"
-                            className="w-36 h-36 rounded-full border-4 border-white shadow-lg object-cover"
+                            className="w-28 h-28 rounded-full border-4 border-white shadow-lg object-cover"
                         />
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-800">
+                                {profile.name}
+                                <span
+                                    className={`ml-3 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide ${profile.isSubscribed
+                                        ? "bg-yellow-100 text-yellow-700 border border-yellow-300"
+                                        : "bg-gray-100 text-gray-600 border border-gray-300"
+                                        }`}
+                                >
+                                    {profile.isSubscribed ? "Premium" : "Free"}
+                                </span>
+                            </h2>
+                            <p className="text-sm text-gray-500 mt-1">{profile.email}</p>
+                        </div>
                     </div>
 
-                    {/* Profile Info */}
-                    <div className="md:col-span-2 text-center md:text-left space-y-2">
-                        <h2 className="text-3xl font-bold text-gray-800">
-                            {profile.name}
-                            <span
-                                className={`ml-3 text-sm font-medium px-3 py-1 rounded-full ${profile.isSubscribed
-                                    ? "bg-yellow-100 text-yellow-700 border border-yellow-300"
-                                    : "bg-gray-100 text-gray-600 border border-gray-300"
-                                    }`}
-                            >
-                                {profile.isSubscribed ? 'Premium' : 'Free'}
-                            </span>
-                        </h2>
-                        <p className="text-gray-600">
-                            <strong>Email:</strong> {profile.email}
-                        </p>
-                        <p className="text-gray-600">
-                            <strong>Phone:</strong> {profile.phone ? profile.phone : 'Not mentioned'}
-                        </p>
-                        <p className="text-gray-700 italic">“{profile.bio ? profile.bio : 'NO BIO ADDED'}”</p>
-
-                        <button className="mt-4 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition shadow-md">
-                            <FaEdit /> Edit Profile
-                        </button>
+                    <div className="text-gray-700 space-y-1">
+                        <p><strong>Phone:</strong> {profile.phone || 'Not mentioned'}</p>
+                        <p className="italic">“{profile.bio || 'No bio added'}”</p>
                     </div>
+
+                    <button className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition shadow-md">
+                        <FaEdit /> Edit Profile
+                    </button>
+                </div>
+
+                {/* Right: Branding or Logo Area */}
+                <div className="w-full lg:w-1/3 bg-green-100 flex flex-col justify-center items-center text-center p-10">
+                    <img
+                        src={logo}
+                        alt="Brand Logo"
+                        className="w-20 lg:w-40 "
+                    />
+                    {/* <h3 className="text-xl font-bold text-green-800">K-Infonic Platform</h3> */}
+                    <p className="text-gray-600 text-sm mt-2">
+                        Your one-stop solution for staying informed, reviewing articles, and sharing your thoughts with the world.
+                    </p>
                 </div>
             </div>
         </section>

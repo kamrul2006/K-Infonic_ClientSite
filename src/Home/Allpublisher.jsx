@@ -51,7 +51,7 @@ const AllPublishers = () => {
         <section className="bg-gradient-to-b from-green-100 to-white text-white py-16 px-4 rounded-2xl mt-5">
 
             <div className="max-w-7xl mx-auto text-center">
-                <h2 className="text-4xl text-center md:text-5xl font-extrabold mb-4 text-black lg:mb-6">
+                <h2 className="text-4xl text-center md:text-5xl font-serif font-extrabold mb-4 text-black lg:mb-6">
                     Our <span className="text-green-600">Top Publishers</span>
                 </h2>
 

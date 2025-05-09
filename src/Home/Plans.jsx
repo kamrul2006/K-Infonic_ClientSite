@@ -39,7 +39,7 @@ const Plans = () => {
     return (
         <section className="bg-gradient-to-b from-green-100 to-white py-16 px-4 mt-5 rounded-2xl ">
             <div className="max-w-7xl mx-auto text-center">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                <h2 className="text-4xl font-serif md:text-5xl font-extrabold mb-4">
                     Choose Your <span className="text-green-600">Plan</span>
                 </h2>
                 <p className="text-gray-600 max-w-xl mx-auto mb-12">

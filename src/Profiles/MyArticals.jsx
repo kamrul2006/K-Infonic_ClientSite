@@ -51,7 +51,7 @@ const MyArticles = () => {
         <section className="max-w-7xl mx-auto px-4 py-10">
 
 
-            <h2 className="text-4xl font-serif md:text-5xl font-extrabold mb-4 text-center drop-shadow-md">
+            <h2 className="text-4xl font-serif md:text-5xl font-extrabold mb-4 text-center drop-shadow-md lg:mb-6">
                 My <span className="text-green-600">Articles</span>
             </h2>
 

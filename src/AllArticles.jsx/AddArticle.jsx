@@ -53,7 +53,8 @@ const AddArticle = () => {
             type: "general",
             status: "pending",
             viewCount: 0,
-            AddedBy: user.email
+            AddedBy: user.email,
+            date: Date()
         };
 
         try {

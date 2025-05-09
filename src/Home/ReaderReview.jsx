@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { AuthContext } from "../Auth/Providers/AuthProvider";
 
 const ReaderReview = () => {
+    const { user } = useContext(AuthContext)
+
+    // console.log(user)
+
     const [reviews, setReviews] = useState([]);
     const [reviewInput, setReviewInput] = useState({
         name: "",
@@ -39,6 +44,7 @@ const ReaderReview = () => {
             await axios.post("http://localhost:5000/reviews", {
                 ...reviewInput,
                 date: new Date().toISOString(),
+                reviewBy: user.email
             });
             Swal.fire("Thank You!", "Your review has been submitted.", "success");
 
@@ -52,7 +58,7 @@ const ReaderReview = () => {
 
     return (
         <section className="max-w-7xl mx-auto px-4 py-12 bg-gradient-to-b from-green-100 to-white">
-            <h2 className="text-4xl text-center md:text-5xl font-extrabold mb-4 lg:mb-6">
+            <h2 className="text-4xl font-serif text-center md:text-5xl font-extrabold mb-4 lg:mb-6">
                 Reader <span className="text-green-600">Reviews</span>
             </h2>
 
