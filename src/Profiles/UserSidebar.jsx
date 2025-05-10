@@ -29,7 +29,7 @@ const UserSidebar = () => {
     ];
 
     return (
-        <>
+        <div className="sticky top-0 z-50">
             {/* Mobile Navbar */}
             <div className="md:hidden bg-white shadow px-4 py-3 flex justify-between items-center">
                 <h2 className="text-xl hidden md:block font-bold text-green-600">User Panel</h2>
@@ -76,7 +76,7 @@ const UserSidebar = () => {
                     className="fixed inset-0 bg-black/40 z-30 md:hidden"
                 ></div>
             )}
-        </>
+        </div>
     );
 };
 

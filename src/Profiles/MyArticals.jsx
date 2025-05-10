@@ -4,6 +4,7 @@ import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import gif from "../assets/nodata.gif"
 
 const MyArticles = () => {
     const { user } = useContext(AuthContext);
@@ -58,6 +59,7 @@ const MyArticles = () => {
             {articles.length === 0 ? (
                 <p className="text-center text-gray-500 text-lg">
                     You haven’t posted any articles yet.
+                    <img src={gif} alt="No data Found" className="mx-auto w-auto rounded-4xl" />
                 </p>
             ) : (
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

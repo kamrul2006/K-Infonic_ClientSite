@@ -87,16 +87,16 @@ const Plans = () => {
                                     </li>
                                 ))}
                             </ul>
-
-                            <Link
-                                to="/subscription"
-                                className={`inline-block w-full text-center rounded-full py-3 font-semibold transition ${plan.btnStyle}`}
-                            >
-                                {plan.id === "free" ? "Stay Free" : "Go Premium"}
-                            </Link>
                         </div>
                     ))}
                 </div>
+                <Link
+                    to="/profilePage/user/subscription"
+                    className={`inline-block w-full text-center rounded-full 
+                         font-semibold  btn bg-green-400 hover:bg-green-700 py-2  hover:text-white  mt-5 transition-all duration-300`}
+                >
+                    Subscribe Now
+                </Link>
             </div>
         </section>
     );

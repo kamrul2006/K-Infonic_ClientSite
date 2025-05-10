@@ -6,7 +6,9 @@ const ProfileLayout = () => {
     return (
         <div>
             <div className="flex">
-                <UserSidebar />
+                <div className=' top-0 sticky'>
+                    <UserSidebar />
+                </div>
                 <main className="flex-1 p-6 bg-gray-50 min-h-screen">
                     <Outlet />
                 </main>

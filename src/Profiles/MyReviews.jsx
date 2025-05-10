@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Auth/Providers/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import gif from "../assets/nodata.gif"
+
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
@@ -53,7 +55,10 @@ const MyReviews = () => {
             </div>
 
             {reviews.length === 0 ? (
-                <p className="text-center text-gray-500 text-lg">You haven’t written any reviews yet.</p>
+                <div>
+                    <p className="text-center text-gray-500 text-lg">You haven’t written any reviews yet.</p>
+                    <img src={gif} alt="No data Found" className="mx-auto w-1/3 rounded-4xl" />
+                </div>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {reviews.map((review) => (

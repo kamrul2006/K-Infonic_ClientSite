@@ -1,24 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
+import { AuthContext } from '../Auth/Providers/AuthProvider';
+import axios from 'axios';
 
 const AllArticles = () => {
+    const { user } = useContext(AuthContext);
     const [articles, setArticles] = useState([]);
     const [filteredArticles, setFilteredArticles] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [publisherFilter, setPublisherFilter] = useState('');
     const [tagFilter, setTagFilter] = useState('');
+    const [isSubscribed, setIsSubscribed] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:5000/News')
             .then(res => res.json())
             .then(data => {
                 const approved = data.filter(article => article.status === 'approved');
-                // const approved = data;
                 setArticles(approved);
                 setFilteredArticles(approved);
             });
     }, []);
+
+    useEffect(() => {
+        if (user?.email) {
+            axios.get("http://localhost:5000/Users")
+                .then(res => {
+                    const found = res.data.find(item => item.email === user.email);
+                    setIsSubscribed(found?.isSubscribed);
+                })
+                .catch(err => console.error(err));
+        }
+    }, [user]);
 
     useEffect(() => {
         let filtered = articles;
@@ -47,13 +61,11 @@ const AllArticles = () => {
 
     return (
         <section className="max-w-7xl mx-auto px-4 py-10">
-            {/* Stylish Responsive Heading */}
-            <div className='bg-green-50 pt-5 pb-2 rounded-2xl mb-5'>
-                <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-extrabold my-8 ">
+            <div className="bg-green-50 pt-5 pb-2 rounded-2xl mb-5">
+                <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-extrabold my-8">
                     Explore <span className="bg-green-700 text-white px-2 rounded-2xl">All Articles</span>
                 </h2>
 
-                {/* Filters */}
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center mb-5">
                     <div className="flex items-center bg-white border rounded-full px-4 py-2 shadow-md w-full sm:w-auto">
                         <FaSearch className="text-gray-400 mr-2" />
@@ -90,17 +102,17 @@ const AllArticles = () => {
                 </div>
             </div>
 
-            {/* Articles Grid */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {filteredArticles.map(article => {
                     const isPremium = article.type === 'premium';
+                    const isAccessible = !isPremium || isSubscribed;
 
                     return (
                         <div
                             key={article._id}
-                            className={`rounded-xl overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow border ${isPremium
-                                ? 'bg-gradient-to-tr from-white via-green-200 to-white text-black border-green-600 '
-                                : 'bg-white text-gray-800 border-green-200'
+                            className={`rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 border ${isPremium
+                                ? 'bg-gradient-to-br from-green-50 via-white to-green-100 border-green-500'
+                                : 'bg-white border-gray-200'
                                 }`}
                         >
                             <img
@@ -108,29 +120,27 @@ const AllArticles = () => {
                                 alt={article.title}
                                 className="h-48 w-full object-cover"
                             />
-                            <div className="p-4 space-y-2">
-                                <h3 className={`text-xl font-bold leading-snug ${isPremium ? 'text-green-900' : 'text-gray-800'} h-[55px]`}>
+                            <div className="p-5 space-y-3">
+                                <h3 className="text-lg font-bold leading-tight text-green-800 line-clamp-2 min-h-[52px]">
                                     {article.title}
                                 </h3>
-                                <p className={`text-sm ${isPremium ? 'text-green-500' : 'text-gray-600'}`}>
-                                    By {article.publisher}
-                                </p>
-                                <p className={`line-clamp-3 text-sm ${isPremium ? 'text-gray-500' : 'text-gray-700'} h-[50px]`}>
+                                <p className="text-sm text-gray-600">By {article.publisher}</p>
+                                <p className="text-sm text-gray-700 line-clamp-3 min-h-[60px]">
                                     {article.description}
                                 </p>
 
-
                                 <Link
-                                    to={`/article/${article._id}`}
-                                    className={`inline-block mt-3 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isPremium
-                                        ? 'bg-white text-green-700 hover:bg-green-100 btn btn-disabled'
-                                        : 'bg-green-600 text-white hover:bg-green-700'
+                                    to={isAccessible ? `/article/${article._id}` : "#"}
+                                    className={`block mt-3 px-4 py-2 rounded-full text-center text-sm font-semibold transition duration-300 ${isAccessible
+                                        ? 'bg-green-600 text-white hover:bg-green-700'
+                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                         }`}
+                                    onClick={e => {
+                                        if (!isAccessible) e.preventDefault();
+                                    }}
                                 >
-                                    Details
+                                    {isAccessible ? "Details" : "Premium"}
                                 </Link>
-
-
                             </div>
                         </div>
                     );
