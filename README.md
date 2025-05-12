@@ -7,8 +7,8 @@
 
 ## 🌐 Live Demo
 
-> 🔗 [Visit the Live Site](https://your-deployment-link.com)
-> *(Replace with your actual deployment URL)*
+> 🔗 [Visit the Live Site](https://k-infonic.web.app/)
+<!-- > *(Replace with your actual deployment URL)* -->
 
 ---
 
@@ -64,8 +64,8 @@
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/k-infonic.git
-cd k-infonic
+git clone https://github.com/kamrul2006/K-Infonic_ClientSite
+cd K-Infonic_ClientSite
 ```
 
 #### 2. Install Frontend Dependencies
@@ -97,7 +97,7 @@ Create `.env` files in both frontend and backend directories.
 ### Frontend `.env`
 
 ```env
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=http://localhost:5000  # (demo)
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 # Add other Firebase config variables
