@@ -140,8 +140,8 @@ npm run lint       # Run code linting
 ## 👨‍💻 Author
 
 **Kamrul Islam Apurba**
-Frontend Developer
-📧 [kamrulislamapurba@gmail.com](mailto:kamrulislamapurba@gmail.com)
+- Frontend Developer
+- 📧 [kamrulislamapurba@gmail.com](mailto:kamrulislamapurba@gmail.com)
 
 ---
 
