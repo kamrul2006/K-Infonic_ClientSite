@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { FaTrashAlt, FaUserShield, FaUser } from "react-icons/fa";
+import { FaTrashAlt, FaUserShield, FaUserTimes } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Auth/Providers/AuthProvider";
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
+    const { user: currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         fetchUsers();
@@ -28,6 +30,18 @@ const AllUsers = () => {
             }
         } catch (err) {
             Swal.fire("Error", "Could not promote user", "error");
+        }
+    };
+
+    const handleRemoveAdmin = async (id) => {
+        try {
+            const res = await axios.patch(`http://localhost:5000/Users/remove-admin/${id}`);
+            if (res.data.modifiedCount > 0) {
+                Swal.fire("Success", "Admin rights removed!", "success");
+                fetchUsers();
+            }
+        } catch (err) {
+            Swal.fire("Error", "Could not remove admin rights", "error");
         }
     };
 
@@ -77,22 +91,35 @@ const AllUsers = () => {
                                 <td className="px-6 py-4">{user.email}</td>
                                 <td className="px-6 py-4 capitalize">{user.role || "user"}</td>
                                 <td className="px-6 py-4 flex gap-2 items-center">
-                                    {user.role !== "admin" && (
-                                        <button
-                                            onClick={() => handleMakeAdmin(user._id)}
-                                            className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full"
-                                            title="Make Admin"
-                                        >
-                                            <FaUserShield />
-                                        </button>
+                                    {user.email !== currentUser?.email && (
+                                        <>
+                                            {user.role !== "admin" ? (
+                                                <button
+                                                    onClick={() => handleMakeAdmin(user._id)}
+                                                    className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full"
+                                                    title="Make Admin"
+                                                >
+                                                    <FaUserShield />
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={() => handleRemoveAdmin(user._id)}
+                                                    className="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-full"
+                                                    title="Remove Admin"
+                                                >
+                                                    <FaUserTimes />
+                                                </button>
+                                            )}
+
+                                            <button
+                                                onClick={() => handleDelete(user._id)}
+                                                className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full"
+                                                title="Delete User"
+                                            >
+                                                <FaTrashAlt />
+                                            </button>
+                                        </>
                                     )}
-                                    <button
-                                        onClick={() => handleDelete(user._id)}
-                                        className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full"
-                                        title="Delete User"
-                                    >
-                                        <FaTrashAlt />
-                                    </button>
                                 </td>
                             </tr>
                         ))}

@@ -39,8 +39,8 @@ const UserSidebar = () => {
     const adminLinks = [
         { to: "/", label: "Back to Home Page", icon: <BiHome /> },
         { to: "/profilePage/dashboard", label: "Dashboard", icon: <FaThLarge /> },
-        { to: "/profilePage/dashboard/users", label: "All Users", icon: <FaUsers /> },
-        { to: "/profilePage/dashboard/articles", label: "All Articles", icon: <FaNewspaper /> },
+        { to: "/profilePage/users", label: "All Users", icon: <FaUsers /> },
+        { to: "/profilePage/articles", label: "All Articles", icon: <FaNewspaper /> },
     ];
 
     const userLinks = [
