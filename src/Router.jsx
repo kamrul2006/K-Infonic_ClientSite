@@ -14,6 +14,8 @@ import MyProfile from "./Profiles/MyProfile";
 import MyArticles from "./Profiles/MyArticals";
 import MyReviews from "./Profiles/MyReviews";
 import Subscription from "./Profiles/Subscription";
+import Dashboard from "./Profiles/Dashboard";
+import AllUsers from "./Profiles/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -77,6 +79,15 @@ const router = createBrowserRouter([
             {
                 path: "/profilePage/user/subscription",
                 element: <PrivetRout><Subscription /></PrivetRout>,
+            },
+            //--------------------for admin--------------------
+            {
+                path: "/profilePage/dashboard",
+                element: <PrivetRout><Dashboard /></PrivetRout>,
+            },
+            {
+                path: "/profilePage/dashboard/users",
+                element: <PrivetRout><AllUsers /></PrivetRout>,
             },
         ]
     },
