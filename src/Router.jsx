@@ -16,6 +16,7 @@ import MyReviews from "./Profiles/MyReviews";
 import Subscription from "./Profiles/Subscription";
 import Dashboard from "./Profiles/Dashboard";
 import AllUsers from "./Profiles/AllUsers";
+import AllArticlesAdmin from "./Profiles/AllArticlesAdmin";
 
 
 const router = createBrowserRouter([
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
             {
                 path: "/profilePage/users",
                 element: <PrivetRout><AllUsers /></PrivetRout>,
+            },
+            {
+                path: "/profilePage/articles",
+                element: <PrivetRout><AllArticlesAdmin /></PrivetRout>,
             },
         ]
     },
