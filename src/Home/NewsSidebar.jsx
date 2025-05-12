@@ -20,8 +20,8 @@ const NewsSidebar = () => {
 
     return (
         <aside className="bg-white rounded-xl pl-4 py-4 h-screen w-full hidden lg:block">
-            <h2 className="text-xl font-bold text-green-600 mb-4 border-b pb-2">
-                🔥 Trending News
+            <h2 className="text-xl font-serif font-bold text-green-600 mb-4 border-b pb-2">
+                Trending News
             </h2>
 
             <ul className="space-y-4 px-4">

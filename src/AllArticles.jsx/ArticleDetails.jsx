@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { FaArrowLeft, FaEye } from "react-icons/fa";
+import { FaArrowLeft, FaEye, FaLock } from "react-icons/fa";
+import { AuthContext } from "../Auth/Providers/AuthProvider";
 
 const ArticleDetails = () => {
     const { id } = useParams();
+    const { user } = useContext(AuthContext); // must contain isSubscribed
     const [article, setArticle] = useState(null);
     const [related, setRelated] = useState([]);
 
@@ -14,13 +16,19 @@ const ArticleDetails = () => {
                 const { data } = await axios.get(`http://localhost:5000/News/${id}`);
                 setArticle(data);
 
+                // Increment view count
                 await axios.put(`http://localhost:5000/News/views/${id}`, {
                     viewCount: data.viewCount + 1,
                 });
 
+                // Fetch all approved articles from same category
                 const allArticles = await axios.get(`http://localhost:5000/News`);
                 const filtered = allArticles.data
-                    .filter(a => a.category === data.category && a._id !== data._id)
+                    .filter(a =>
+                        a.category === data.category &&
+                        a._id !== data._id &&
+                        a.status === "approved"
+                    )
                     .slice(0, 4);
                 setRelated(filtered);
             } catch (err) {
@@ -72,7 +80,6 @@ const ArticleDetails = () => {
                     </p>
                 </article>
 
-                {/* Back Button */}
                 <div className="mt-10">
                     <Link
                         to="/all-articles"
@@ -87,27 +94,65 @@ const ArticleDetails = () => {
             {/* Related Sidebar */}
             <aside className="space-y-6">
                 <h2 className="text-2xl font-bold text-green-600">Related Articles</h2>
-                {related.map(item => (
-                    <Link
-                        to={`/article/${item._id}`}
-                        key={item._id}
-                        className="flex gap-4 items-start bg-white rounded-xl border border-gray-100 hover:shadow-lg transition p-3"
-                    >
-                        <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-24 h-24 object-cover rounded-md flex-shrink-0"
-                        />
-                        <div className="flex-1">
-                            <h3 className="text-md font-semibold text-gray-800 mb-1 line-clamp-2">
-                                {item.title}
-                            </h3>
-                            <p className="text-xs text-gray-500 flex items-center gap-1">
-                                <FaEye className="text-green-500" /> {item.viewCount} views
-                            </p>
+                {related.map(item => {
+                    const isPremium = item.tier === "premium";
+                    const isDisabled = isPremium && !user?.isSubscribed;
+
+                    return (
+                        <div
+                            key={item._id}
+                            className={`relative group transition p-3 rounded-xl border ${isPremium
+                                    ? "bg-gradient-to-r from-green-50 via-white to-green-100 border-green-200"
+                                    : "bg-white border-gray-100"
+                                } ${isDisabled ? "opacity-60 cursor-not-allowed" : "hover:shadow-lg"}`}
+                        >
+                            {isPremium && (
+                                <div className="absolute top-2 right-2 text-yellow-500 text-sm font-medium flex items-center gap-1">
+                                    <FaLock />
+                                    Premium
+                                </div>
+                            )}
+
+                            {isDisabled ? (
+                                <div className="flex gap-4 items-start">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-24 h-24 object-cover rounded-md flex-shrink-0"
+                                    />
+                                    <div className="flex-1">
+                                        <h3 className="text-md font-semibold text-gray-800 mb-1 line-clamp-2">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-xs text-gray-500 flex items-center gap-1">
+                                            <FaEye className="text-green-500" /> {item.viewCount} views
+                                        </p>
+                                        <p className="text-xs text-red-400 font-medium">Subscribe to view</p>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Link
+                                    to={`/article/${item._id}`}
+                                    className="flex gap-4 items-start"
+                                >
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-24 h-24 object-cover rounded-md flex-shrink-0"
+                                    />
+                                    <div className="flex-1">
+                                        <h3 className="text-md font-semibold text-gray-800 mb-1 line-clamp-2">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-xs text-gray-500 flex items-center gap-1">
+                                            <FaEye className="text-green-500" /> {item.viewCount} views
+                                        </p>
+                                    </div>
+                                </Link>
+                            )}
                         </div>
-                    </Link>
-                ))}
+                    );
+                })}
             </aside>
         </section>
     );

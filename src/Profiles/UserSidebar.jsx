@@ -21,7 +21,7 @@ const UserSidebar = () => {
 
     const links = [
         { to: "/", label: "Back to Home Page", icon: <BiHome /> },
-        { to: "/profilePage", label: "Profile", icon: <FaUser /> },
+        { to: "/profilePage/profile", label: "Profile", icon: <FaUser /> },
         { to: "/profilePage/user/my-articles", label: "My Articles", icon: <FaNewspaper /> },
         { to: "/profilePage/user/reviews", label: "My Reviews", icon: <FaStar /> },
         { to: "/profilePage/user/subscription", label: "Subscription", icon: <FaCrown /> },

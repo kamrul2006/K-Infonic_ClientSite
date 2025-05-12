@@ -23,14 +23,19 @@ const Header = () => {
                     <img src={logo} alt="K-Infonic" className="dark:bg-white/50 rounded-2xl md:w-56 w-20  object-contain" />
                 </div>
 
-                <div className=' hidden md:flex border border-green-400'>
-                    <div className='bg-green-500  px-2'>
+                <div className=' hidden md:flex border border-green-400 '>
+                    <div className='bg-green-500  px-2 py-2'>
                         Top news
                     </div>
 
-                    <div className='max-w-2xl hidden md:block'>
+                    <div className='max-w-2xl hidden md:block bg-green-50 py-2 '>
                         <Marquee className='gap-5'>
-                            ভারত-পাক সঙ্ঘাতে বাংলাদেশের অবস্থান কী হবে? দেশ দু’টির সাথে বাংলাদেশের সম্পর্ক ‘স্পর্শকাতর’ অবস্থায় রয়েছে বলে বিশ্লেষকেরা ভাবছেন।
+                            <p className='text-green-500'>
+                                Govt of Bangladesh bans Awami League's all kind of political activities.
+                            </p>
+                            <p className='ml-5 '>
+                                Govt issues ordinance amending Anti-Terrorism Act.
+                            </p>
                         </Marquee>
                     </div>
                 </div>

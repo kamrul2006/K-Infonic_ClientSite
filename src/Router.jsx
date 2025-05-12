@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         element: <PrivetRout><ProfileLayout /></PrivetRout>,
         children: [
             {
-                path: "/profilePage",
+                path: "/profilePage/profile",
                 element: <PrivetRout><MyProfile /></PrivetRout>,
             },
             {

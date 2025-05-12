@@ -35,11 +35,7 @@ const Navbar = ({ isAdmin }) => {
                     All Articles
                 </NavLink>
             </li>
-            {/* <li>
-                <NavLink to="/subscription" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
-                    Subscription
-                </NavLink>
-            </li> */}
+
             <li>
                 <NavLink to="/AboutUs" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
                     About Us
@@ -48,7 +44,7 @@ const Navbar = ({ isAdmin }) => {
 
             {user && (
                 <li>
-                    <NavLink to="/profilePage" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
+                    <NavLink to="/profilePage/profile" className={({ isActive }) => `${navLinkClasses} ${activeLinkStyle({ isActive })}`}>
                         My Profile
                     </NavLink>
                 </li>
@@ -71,7 +67,14 @@ const Navbar = ({ isAdmin }) => {
                 <div className="hidden md:flex items-center gap-4">
                     {user ? (
                         <>
-                            <FaUserCircle className="text-2xl text-gray-700 dark:text-gray-300" />
+                            {/* <FaUserCircle className="text-2xl text-gray-700 dark:text-gray-300" /> */}
+                            <Link to={"/profilePage/profile"}>
+
+                                <img src={user.photoURL ? user.photoURL : "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png"}
+                                    alt={user.displayName}
+                                    className='rounded-full w-10 h-10 border border-green-500 hover:w-11 hover:border-2 transition-all' />
+
+                            </Link>
                             <button
                                 onClick={UserSignOut}
                                 className="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded hover:opacity-90 transition"
@@ -111,10 +114,13 @@ const Navbar = ({ isAdmin }) => {
                     <div className="mt-4">
                         {user ? (
                             <>
+
                                 <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
                                     <FaUserCircle className="text-xl" />
                                     <span>{user.displayName}</span>
                                 </div>
+
+
                                 <button
                                     onClick={UserSignOut}
                                     className="mt-2 text-green-600 hover:underline"

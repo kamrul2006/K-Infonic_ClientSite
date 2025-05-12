@@ -4,6 +4,7 @@ import { AuthContext } from "../Auth/Providers/AuthProvider";
 import axios from "axios";
 import KInfonicLoader from "../Components/Fixed/KInfonicLoader";
 import logo from "../assets/reeej.png"
+import { Link } from "react-router-dom";
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const MyProfile = () => {
                 <div className="w-full lg:w-2/3 p-8 lg:p-12 space-y-6">
                     <div className="flex items-center gap-6">
                         <img
-                            src={user.photoURL || "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png"}
+                            src={user.photoURL ? user.photoURL : "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png"}
                             alt="User"
                             className="w-28 h-28 rounded-full border-4 border-white shadow-lg object-cover"
                         />
