@@ -48,20 +48,6 @@
 
 ---
 
-## 📁 Folder Structure (Frontend)
-
-```
-src/
-├── assets/           # Static files (images, logos)
-├── components/       # Reusable UI components
-├── pages/            # Page-level components (routes)
-├── Auth/Providers/   # Auth context, hooks
-├── layouts/          # Navbar, Footer, etc.
-├── utils/            # Helper functions
-```
-
----
-
 ## 🚀 Getting Started
 
 ### 🧰 Prerequisites
@@ -121,7 +107,9 @@ VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 
 ## 📸 Screenshots
 
-> *Add screenshots or screen recordings here to showcase the UI.*
+<!-- > *Add screenshots or screen recordings here to showcase the UI.* -->
+<img src="./src/assets/ss.png" alt="Homepage Screenshot" width="600"/>
+
 
 ---
 
