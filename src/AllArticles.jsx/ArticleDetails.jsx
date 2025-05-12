@@ -13,16 +13,16 @@ const ArticleDetails = () => {
     useEffect(() => {
         const fetchAndUpdate = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/News/${id}`);
+                const { data } = await axios.get(`https://k-info-nic-server.vercel.app/News/${id}`);
                 setArticle(data);
 
                 // Increment view count
-                await axios.put(`http://localhost:5000/News/views/${id}`, {
+                await axios.put(`https://k-info-nic-server.vercel.app/News/views/${id}`, {
                     viewCount: data.viewCount + 1,
                 });
 
                 // Fetch all approved articles from same category
-                const allArticles = await axios.get(`http://localhost:5000/News`);
+                const allArticles = await axios.get(`https://k-info-nic-server.vercel.app/News`);
                 const filtered = allArticles.data
                     .filter(a =>
                         a.category === data.category &&
@@ -102,8 +102,8 @@ const ArticleDetails = () => {
                         <div
                             key={item._id}
                             className={`relative group transition p-3 rounded-xl border ${isPremium
-                                    ? "bg-gradient-to-r from-green-50 via-white to-green-100 border-green-200"
-                                    : "bg-white border-gray-100"
+                                ? "bg-gradient-to-r from-green-50 via-white to-green-100 border-green-200"
+                                : "bg-white border-gray-100"
                                 } ${isDisabled ? "opacity-60 cursor-not-allowed" : "hover:shadow-lg"}`}
                         >
                             {isPremium && (

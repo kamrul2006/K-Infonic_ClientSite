@@ -39,7 +39,7 @@ const AddArticle = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/publishers")
+            .get("https://k-info-nic-server.vercel.app/publishers")
             .then((res) => setPublishers(res.data))
             .catch((err) => console.error("Error fetching publishers:", err));
     }, []);
@@ -58,7 +58,7 @@ const AddArticle = () => {
         };
 
         try {
-            await axios.post("http://localhost:5000/News", articleData);
+            await axios.post("https://k-info-nic-server.vercel.app/News", articleData);
             Swal.fire({
                 icon: "success",
                 title: "Submitted!",

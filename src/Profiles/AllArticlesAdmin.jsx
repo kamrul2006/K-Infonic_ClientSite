@@ -13,7 +13,7 @@ const AllArticlesAdmin = () => {
 
     const fetchArticles = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/News");
+            const res = await axios.get("https://k-info-nic-server.vercel.app/News");
             setArticles(res.data);
         } catch (err) {
             console.error("Failed to fetch articles", err);
@@ -33,7 +33,7 @@ const AllArticlesAdmin = () => {
 
         if (result.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/News/${id}`);
+                await axios.delete(`https://k-info-nic-server.vercel.app/News/${id}`);
                 Swal.fire("Deleted!", "Article has been deleted.", "success");
                 fetchArticles();
             } catch (err) {
@@ -44,7 +44,7 @@ const AllArticlesAdmin = () => {
 
     const handleMakePremium = async (id) => {
         try {
-            const res = await axios.patch(`http://localhost:5000/News/premium/${id}`);
+            const res = await axios.patch(`https://k-info-nic-server.vercel.app/News/premium/${id}`);
             if (res.data.modifiedCount > 0) {
                 Swal.fire("Success", "Article marked as Premium!", "success");
                 fetchArticles();
@@ -56,7 +56,7 @@ const AllArticlesAdmin = () => {
 
     const handleMakeGeneral = async (id) => {
         try {
-            const res = await axios.patch(`http://localhost:5000/News/general/${id}`);
+            const res = await axios.patch(`https://k-info-nic-server.vercel.app/News/general/${id}`);
             if (res.data.modifiedCount > 0) {
                 Swal.fire("Success", "Article is now General!", "success");
                 fetchArticles();
@@ -68,7 +68,7 @@ const AllArticlesAdmin = () => {
 
     const handleApprove = async (id) => {
         try {
-            const res = await axios.patch(`http://localhost:5000/News/approve/${id}`);
+            const res = await axios.patch(`https://k-info-nic-server.vercel.app/News/approve/${id}`);
             if (res.data.modifiedCount > 0) {
                 Swal.fire("Success", "Article approved!", "success");
                 fetchArticles();

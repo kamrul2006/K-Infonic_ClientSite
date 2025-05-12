@@ -7,7 +7,7 @@ const NewsSidebar = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/News")
+        axios.get("https://k-info-nic-server.vercel.app/News")
             .then(res => {
                 const approvedNews = res.data
                     .filter(item => item.status === "approved")

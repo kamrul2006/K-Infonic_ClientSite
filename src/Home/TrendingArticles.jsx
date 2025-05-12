@@ -10,7 +10,7 @@ const TrendingArticles = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/News")
+        fetch("https://k-info-nic-server.vercel.app/News")
             .then(res => res.json())
             .then(data => {
                 const sorted = [...data].sort((a, b) => b.viewCount - a.viewCount);

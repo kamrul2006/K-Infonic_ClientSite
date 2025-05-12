@@ -172,12 +172,12 @@ const LoginPage = () => {
                     {/* Registration Link */}
                     <p className="mt-4 text-center text-sm text-gray-300">
                         New here?{" "}
-                        <a
-                            href="/register"
+                        <Link
+                            to="/register"
                             className="text-green-500 hover:underline hover:font-bold"
                         >
                             Create a New Account
-                        </a>
+                        </Link>
                     </p>
 
                     {/* Social Sign-in */}

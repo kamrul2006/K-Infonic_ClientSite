@@ -22,9 +22,9 @@ const Dashboard = () => {
         const fetchStats = async () => {
             try {
                 const [articlesRes, usersRes, reviewsRes] = await Promise.all([
-                    axios.get("http://localhost:5000/News"),
-                    axios.get("http://localhost:5000/users"),
-                    axios.get("http://localhost:5000/reviews"),
+                    axios.get("https://k-info-nic-server.vercel.app/News"),
+                    axios.get("https://k-info-nic-server.vercel.app/users"),
+                    axios.get("https://k-info-nic-server.vercel.app/reviews"),
                 ]);
 
                 const totalViews = articlesRes.data.reduce((acc, cur) => acc + (cur.viewCount || 0), 0);
@@ -81,7 +81,7 @@ const Dashboard = () => {
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-green-600 mb-10">📊 Dashboard Overview</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-green-600 mb-10"> Dashboard Overview</h1>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {cards.map((card, idx) => (
@@ -101,7 +101,7 @@ const Dashboard = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-md border max-w-3xl mx-auto">
-                <h2 className="text-2xl font-semibold text-center mb-6 text-green-600">📈 Stats Pie Chart</h2>
+                <h2 className="text-2xl font-semibold text-center mb-6 text-green-600"> Stats Pie Chart</h2>
                 <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                         <Pie

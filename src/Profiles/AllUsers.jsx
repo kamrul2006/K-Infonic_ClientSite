@@ -14,7 +14,7 @@ const AllUsers = () => {
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/Users");
+            const res = await axios.get("https://k-info-nic-server.vercel.app/Users");
             setUsers(res.data);
         } catch (err) {
             console.error("Failed to fetch users", err);
@@ -23,7 +23,7 @@ const AllUsers = () => {
 
     const handleMakeAdmin = async (id) => {
         try {
-            const res = await axios.patch(`http://localhost:5000/Users/admin/${id}`);
+            const res = await axios.patch(`https://k-info-nic-server.vercel.app/Users/admin/${id}`);
             if (res.data.modifiedCount > 0) {
                 Swal.fire("Success", "User promoted to Admin!", "success");
                 fetchUsers();
@@ -35,7 +35,7 @@ const AllUsers = () => {
 
     const handleRemoveAdmin = async (id) => {
         try {
-            const res = await axios.patch(`http://localhost:5000/Users/remove-admin/${id}`);
+            const res = await axios.patch(`https://k-info-nic-server.vercel.app/Users/remove-admin/${id}`);
             if (res.data.modifiedCount > 0) {
                 Swal.fire("Success", "Admin rights removed!", "success");
                 fetchUsers();
@@ -58,7 +58,7 @@ const AllUsers = () => {
 
         if (result.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/Users/${id}`);
+                await axios.delete(`https://k-info-nic-server.vercel.app/Users/${id}`);
                 Swal.fire("Deleted!", "User has been deleted.", "success");
                 fetchUsers();
             } catch (err) {

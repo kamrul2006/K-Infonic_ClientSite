@@ -12,7 +12,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get("http://localhost:5000/Users")
+            axios.get("https://k-info-nic-server.vercel.app/Users")
                 .then(res => {
                     const matchedUser = res.data.find(item => item.email === user.email);
                     setProfile(matchedUser);
@@ -30,7 +30,7 @@ const MyProfile = () => {
     }
 
     return (
-        <section className="max-w-6xl mx-auto px-4 py-10">
+        <section className="max-w-6xl mx-auto px-4 py-10 lg:py-0 lg:h-screen lg:flex items-center justify-center">
             <div className="flex flex-col lg:flex-row bg-gradient-to-r from-white to-green-50 rounded-3xl shadow-2xl overflow-hidden border border-green-100">
 
                 {/* Left: Profile Info */}
@@ -62,9 +62,7 @@ const MyProfile = () => {
                         <p className="italic">“{profile.bio || 'No bio added'}”</p>
                     </div>
 
-                    <button className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition shadow-md">
-                        <FaEdit /> Edit Profile
-                    </button>
+
                 </div>
 
                 {/* Right: Branding or Logo Area */}

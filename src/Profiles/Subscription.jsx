@@ -10,7 +10,7 @@ const Subscription = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get("http://localhost:5000/Users")
+            axios.get("https://k-info-nic-server.vercel.app/Users")
                 .then(res => {
                     const matchedUser = res.data.find(item => item.email === user.email);
                     setProfile(matchedUser);
@@ -28,7 +28,7 @@ const Subscription = () => {
             confirmButtonColor: "#10b981",
         }).then(result => {
             if (result.isConfirmed) {
-                axios.patch(`http://localhost:5000/Users/${profile._id}`, { isSubscribed: true })
+                axios.patch(`https://k-info-nic-server.vercel.app/Users/${profile._id}`, { isSubscribed: true })
                     .then(() => {
                         Swal.fire("Success!", "You are now a Pro subscriber!", "success");
                         setProfile(prev => ({ ...prev, isSubscribed: true }));

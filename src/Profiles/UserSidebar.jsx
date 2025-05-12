@@ -21,7 +21,7 @@ const UserSidebar = () => {
 
     useEffect(() => {
         if (authUser?.email) {
-            fetch("http://localhost:5000/Users")
+            fetch("https://k-info-nic-server.vercel.app/Users")
                 .then((res) => res.json())
                 .then((data) => {
                     const matchedUser = data.find(u => u.email === authUser.email);

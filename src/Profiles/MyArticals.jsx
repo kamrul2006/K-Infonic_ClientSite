@@ -12,7 +12,7 @@ const MyArticles = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch("http://localhost:5000/News")
+            fetch("https://k-info-nic-server.vercel.app/News")
                 .then((res) => res.json())
                 .then((data) => {
                     const userArticles = data.filter(
@@ -36,7 +36,7 @@ const MyArticles = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .delete(`http://localhost:5000/news/${id}`)
+                    .delete(`https://k-info-nic-server.vercel.app/news/${id}`)
                     .then(() => {
                         setArticles((prev) => prev.filter((a) => a._id !== id));
                         Swal.fire("Deleted!", "Your article has been deleted.", "success");

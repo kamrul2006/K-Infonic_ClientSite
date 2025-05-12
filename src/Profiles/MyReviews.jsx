@@ -11,7 +11,7 @@ const MyReviews = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get("http://localhost:5000/Reviews")
+            axios.get("https://k-info-nic-server.vercel.app/Reviews")
                 .then(res => {
                     const userReviews = res.data.filter(review => review.reviewBy === user.email);
                     setReviews(userReviews);
@@ -31,7 +31,7 @@ const MyReviews = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/Reviews/${id}`)
+                axios.delete(`https://k-info-nic-server.vercel.app/Reviews/${id}`)
                     .then(() => {
                         setReviews(prev => prev.filter(review => review._id !== id));
                         Swal.fire("Deleted!", "Your review has been deleted.", "success");

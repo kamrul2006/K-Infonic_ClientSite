@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             {
                 path: `/article/:id`,
                 element: <PrivetRout><ArticleDetails /></PrivetRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/News/${params.id}`)
+                loader: ({ params }) => fetch(`https://k-info-nic-server.vercel.app/News/${params.id}`)
             },
 
             //-----------about us related-------------
@@ -59,7 +59,8 @@ const router = createBrowserRouter([
     },
     {
         path: "/register",
-        element: <SignupPage />
+        element: <SignupPage />,
+        errorElement: <ErrorPage />
     },
     {
         path: "/profilePage",

@@ -16,7 +16,7 @@ const ReaderReview = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/reviews")
+            .get("https://k-info-nic-server.vercel.app/reviews")
             .then((res) => setReviews(res.data))
             .catch((err) => console.error("Error loading reviews:", err));
     }, []);
@@ -40,7 +40,7 @@ const ReaderReview = () => {
         }
 
         try {
-            await axios.post("http://localhost:5000/reviews", {
+            await axios.post("https://k-info-nic-server.vercel.app/reviews", {
                 ...reviewInput,
                 date: new Date().toISOString(),
                 reviewBy: user.email,
@@ -50,7 +50,7 @@ const ReaderReview = () => {
 
             setReviewInput({ name: "", comment: "", rating: 0 });
 
-            const { data } = await axios.get("http://localhost:5000/reviews");
+            const { data } = await axios.get("https://k-info-nic-server.vercel.app/reviews");
             setReviews(data);
         } catch (err) {
             Swal.fire("Error", "Failed to submit review.", "error");

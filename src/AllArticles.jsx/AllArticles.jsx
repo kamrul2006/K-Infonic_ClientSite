@@ -14,7 +14,7 @@ const AllArticles = () => {
     const [isSubscribed, setIsSubscribed] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/News')
+        fetch('https://k-info-nic-server.vercel.app/News')
             .then(res => res.json())
             .then(data => {
                 const approved = data.filter(article => article.status === 'approved');
@@ -25,7 +25,7 @@ const AllArticles = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get("http://localhost:5000/Users")
+            axios.get("https://k-info-nic-server.vercel.app/Users")
                 .then(res => {
                     const found = res.data.find(item => item.email === user.email);
                     setIsSubscribed(found?.isSubscribed);
