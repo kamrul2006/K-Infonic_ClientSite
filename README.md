@@ -74,23 +74,25 @@ Edit
 git clone https://github.com/yourusername/k-infonic.git
 cd k-infonic
 Install frontend dependencies
+```
 
-bash
+```bash
 Copy
 Edit
 npm install
 Run development server
-
-bash
+```
+```bash
 Copy
 Edit
 npm run dev
+```
 🔌 Backend Setup
 Create a separate folder backend/ and add your server.js
 
 Sample backend route for fetching user by email:
 
-js
+```js
 Copy
 Edit
 app.get('/users', async (req, res) => {
@@ -99,16 +101,18 @@ app.get('/users', async (req, res) => {
     res.send(result);
 });
 Run server:
-
-bash
+```
+```bash
 Copy
 Edit
 node server.js
+```
+
 🔐 Environment Variables
 Create a .env file in your frontend and backend:
 
 .env (Frontend)
-makefile
+```makefile
 Copy
 Edit
 VITE_API_URL=http://localhost:5000
@@ -116,21 +120,22 @@ VITE_FIREBASE_API_KEY=your_key
 VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 ...
 
+```
 
 🎨 Screenshots
 
 
 📚 Scripts
-bash
+```bash
 Copy
 Edit
 npm run dev        # Start development server
 npm run build      # Build for production
 npm run preview    # Preview production build
 npm run lint       # Run eslint
+```
+
 👨‍💻 Author
 Kamrul Islam Apurba
-Frontend Developer | GitHub: K-WEB TEc
-
-📃 License
-This project is licensed under the MIT License.
+Frontend Developer 
+- kamrulislamapurba@gmail.com
