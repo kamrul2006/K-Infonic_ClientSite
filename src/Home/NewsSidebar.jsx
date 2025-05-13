@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Fade, Slide } from "react-awesome-reveal";
 
 
 const NewsSidebar = () => {
@@ -21,26 +22,28 @@ const NewsSidebar = () => {
     return (
         <aside className="bg-white rounded-xl pl-4 py-4 h-screen w-full hidden lg:block">
             <h2 className="text-xl font-serif font-bold text-green-600 mb-4 border-b pb-2">
-                Trending News
+                <span className="text-black">Trending </span>  News
             </h2>
 
             <ul className="space-y-4 px-4">
                 {news.map(article => (
-                    <li key={article._id} className="flex items-start gap-3">
-                        <img
-                            src={article.image}
-                            alt={article.title}
-                            className="w-16 h-16 object-cover rounded-md shadow"
-                        />
-                        <div>
-                            <Link to={`/article/${article._id}`}>
-                                <h3 className="text-sm font-semibold text-gray-800 hover:text-green-600 line-clamp-2">
-                                    {article.title}
-                                </h3>
-                            </Link>
-                            <p className="text-xs text-gray-500">{article.publisher}</p>
-                        </div>
-                    </li>
+                    <Slide>
+                        <li key={article._id} className="flex items-start gap-3">
+                            <img
+                                src={article.image}
+                                alt={article.title}
+                                className="w-16 h-16 object-cover rounded-md shadow"
+                            />
+                            <div>
+                                <Link to={`/article/${article._id}`}>
+                                    <h3 className="text-sm font-semibold text-gray-800 hover:text-green-600 line-clamp-2">
+                                        {article.title}
+                                    </h3>
+                                </Link>
+                                <p className="text-xs text-gray-500">{article.publisher}</p>
+                            </div>
+                        </li>
+                    </Slide>
                 ))}
             </ul>
         </aside>

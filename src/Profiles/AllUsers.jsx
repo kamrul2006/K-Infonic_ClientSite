@@ -69,7 +69,7 @@ const AllUsers = () => {
 
     return (
         <section className="max-w-6xl mx-auto px-6 py-12">
-            <h2 className="text-3xl font-bold text-green-600 mb-6"> All Users</h2>
+            <h2 className="text-3xl font-bold text-green-600 mb-6 font-serif"> <span className="text-black">All</span> Users</h2>
 
             <div className="overflow-x-auto shadow-lg rounded-xl border bg-white">
                 <table className="min-w-full text-left">

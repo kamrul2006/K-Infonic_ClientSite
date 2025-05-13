@@ -1,5 +1,6 @@
 import { FaBroadcastTower, FaBookOpen, FaGlobeAsia, FaPenNib, FaBullhorn, FaRegNewspaper } from 'react-icons/fa';
 import CountUp from 'react-countup';
+import { Zoom } from 'react-awesome-reveal';
 
 const publishers = [
     {
@@ -62,29 +63,31 @@ const AllPublishers = () => {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     {publishers.map(pub => (
-                        <div
-                            key={pub.id}
-                            className="p-6 bg-green-950/60 backdrop-blur-md border border-green-700 rounded-2xl shadow  transition-transform hover:-translate-y-2 duration-300"
-                        >
-                            <div className="flex items-center gap-4 mb-4">
-                                <div className="p-3 bg-green-600 text-white rounded-full shadow-lg">
-                                    {pub.icon}
+                        <Zoom>
+                            <div
+                                key={pub.id}
+                                className="p-6 bg-green-950/60 backdrop-blur-md border border-green-700 rounded-2xl shadow  transition-transform hover:-translate-y-2 duration-300"
+                            >
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="p-3 bg-green-600 text-white rounded-full shadow-lg">
+                                        {pub.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold tracking-wide">{pub.name}</h3>
                                 </div>
-                                <h3 className="text-xl font-bold tracking-wide">{pub.name}</h3>
+                                <div className="text-left pl-2 text-green-200">
+                                    <p className="mb-1 text-sm">
+                                        Articles: <span className="font-semibold text-white">
+                                            <CountUp end={pub.articles} duration={2} />
+                                        </span>
+                                    </p>
+                                    <p className="text-sm">
+                                        Subscribers: <span className="font-semibold text-white">
+                                            <CountUp end={pub.subscribers} duration={2} />
+                                        </span>
+                                    </p>
+                                </div>
                             </div>
-                            <div className="text-left pl-2 text-green-200">
-                                <p className="mb-1 text-sm">
-                                    Articles: <span className="font-semibold text-white">
-                                        <CountUp end={pub.articles} duration={2} />
-                                    </span>
-                                </p>
-                                <p className="text-sm">
-                                    Subscribers: <span className="font-semibold text-white">
-                                        <CountUp end={pub.subscribers} duration={2} />
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
+                        </Zoom>
                     ))}
                 </div>
             </div>

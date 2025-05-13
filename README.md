@@ -108,7 +108,7 @@ VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 ## 📸 Screenshots
 
 <!-- > *Add screenshots or screen recordings here to showcase the UI.* -->
-<img src="./src/assets/ss.png" alt="Homepage Screenshot" width="600"/>
+<img src="./src/assets/ss.png" alt="Homepage Screenshot" />
 
 
 ---
@@ -140,8 +140,8 @@ npm run lint       # Run code linting
 ## 👨‍💻 Author
 
 **Kamrul Islam Apurba**
-Frontend Developer
-📧 [kamrulislamapurba@gmail.com](mailto:kamrulislamapurba@gmail.com)
+- Frontend Developer
+- 📧 [kamrulislamapurba@gmail.com](mailto:kamrulislamapurba@gmail.com)
 
 ---
 

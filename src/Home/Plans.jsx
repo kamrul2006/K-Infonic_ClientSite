@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaCheck, FaTimes, FaCrown } from "react-icons/fa";
+import { Slide } from "react-awesome-reveal";
 
 const plans = [
     {
@@ -48,46 +49,48 @@ const Plans = () => {
 
                 <div className="grid gap-8 sm:grid-cols-2">
                     {plans.map((plan) => (
-                        <div
-                            key={plan.id}
-                            className={`relative rounded-2xl border ${plan.accent} bg-white p-8 transition-transform hover:-translate-y-2`}
-                        >
-                            {plan.id === "premium" && (
-                                <FaCrown className="absolute -top-5 right-6 text-green-600 text-3xl" />
-                            )}
-
-                            <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                            <div className="text-4xl font-extrabold mb-6">
-                                {plan.price === "0" ? (
-                                    "Free"
-                                ) : (
-                                    <>
-                                        ${plan.price}
-                                        <span className="text-lg font-medium text-gray-500">
-                                            {plan.period}
-                                        </span>
-                                    </>
+                        <Slide direction="right">
+                            <div
+                                key={plan.id}
+                                className={`relative rounded-2xl border ${plan.accent} bg-white p-8 transition-transform hover:-translate-y-2`}
+                            >
+                                {plan.id === "premium" && (
+                                    <FaCrown className="absolute -top-5 right-6 text-green-600 text-3xl" />
                                 )}
-                            </div>
 
-                            <ul className="space-y-3 text-left mb-8">
-                                {plan.features.map((f) => (
-                                    <li key={f.label} className="flex items-center gap-3">
-                                        {f.included ? (
-                                            <FaCheck className="text-green-500" />
-                                        ) : (
-                                            <FaTimes className="text-gray-400" />
-                                        )}
-                                        <span
-                                            className={`${f.included ? "text-gray-800" : "text-gray-400 line-through"
-                                                }`}
-                                        >
-                                            {f.label}
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                                <div className="text-4xl font-extrabold mb-6">
+                                    {plan.price === "0" ? (
+                                        "Free"
+                                    ) : (
+                                        <>
+                                            ${plan.price}
+                                            <span className="text-lg font-medium text-gray-500">
+                                                {plan.period}
+                                            </span>
+                                        </>
+                                    )}
+                                </div>
+
+                                <ul className="space-y-3 text-left mb-8">
+                                    {plan.features.map((f) => (
+                                        <li key={f.label} className="flex items-center gap-3">
+                                            {f.included ? (
+                                                <FaCheck className="text-green-500" />
+                                            ) : (
+                                                <FaTimes className="text-gray-400" />
+                                            )}
+                                            <span
+                                                className={`${f.included ? "text-gray-800" : "text-gray-400 line-through"
+                                                    }`}
+                                            >
+                                                {f.label}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </Slide>
                     ))}
                 </div>
                 <Link

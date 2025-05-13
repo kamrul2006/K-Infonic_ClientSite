@@ -10,7 +10,7 @@ import Dashboard from '../Profiles/Dashboard'
 
 export const HomeLayOuts = () => {
     return (
-        <div>
+        <div className='text-black'>
 
             <div className='block lg:grid lg:grid-cols-12'>
 

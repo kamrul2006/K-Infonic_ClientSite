@@ -9,6 +9,7 @@ import {
     ResponsiveContainer,
     Legend,
 } from "recharts";
+import { Zoom } from "react-awesome-reveal";
 
 const Dashboard = () => {
     const [stats, setStats] = useState({
@@ -81,22 +82,24 @@ const Dashboard = () => {
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-green-600 mb-10"> Dashboard Overview</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-green-600 mb-10 font-serif"> <span className="text-black">Dashboard</span> Overview</h1>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {cards.map((card, idx) => (
-                    <div
-                        key={idx}
-                        className={`bg-gradient-to-br ${card.bg} p-6 rounded-2xl shadow-lg backdrop-blur-md border border-gray-200 hover:scale-105 transition-transform duration-300`}
-                    >
-                        <div className="flex items-center gap-4">
-                            {card.icon}
-                            <div>
-                                <p className="text-gray-600 text-sm">{card.label}</p>
-                                <h2 className="text-2xl font-extrabold text-gray-800">{card.value}</h2>
+                    <Zoom>
+                        <div
+                            key={idx}
+                            className={`bg-gradient-to-br ${card.bg} p-6 rounded-2xl shadow-lg backdrop-blur-md border border-gray-200 hover:scale-105 transition-transform duration-300`}
+                        >
+                            <div className="flex items-center gap-4">
+                                {card.icon}
+                                <div>
+                                    <p className="text-gray-600 text-sm">{card.label}</p>
+                                    <h2 className="text-2xl font-extrabold text-gray-800">{card.value}</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Zoom>
                 ))}
             </div>
 

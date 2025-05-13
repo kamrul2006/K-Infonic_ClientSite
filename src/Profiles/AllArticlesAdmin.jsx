@@ -80,7 +80,7 @@ const AllArticlesAdmin = () => {
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-12">
-            <h2 className="text-4xl font-extrabold text-green-700 mb-8 tracking-tight"> Admin: Manage All Articles</h2>
+            <h2 className="text-4xl font-extrabold text-green-700 mb-8 tracking-tight font-serif">  <span className="text-black">Manage</span> All Articles</h2>
 
             <div className="overflow-x-auto bg-white border rounded-xl shadow-lg transition duration-300 ease-in-out">
                 <table className="min-w-full text-sm text-left">

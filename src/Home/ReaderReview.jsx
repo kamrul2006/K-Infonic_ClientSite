@@ -75,6 +75,7 @@ const ReaderReview = () => {
                     value={reviewInput.name}
                     onChange={(e) => setReviewInput({ ...reviewInput, name: e.target.value })}
                 />
+
                 <textarea
                     rows="4"
                     placeholder="Your Comment"

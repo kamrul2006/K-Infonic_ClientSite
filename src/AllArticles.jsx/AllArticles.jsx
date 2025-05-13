@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { AuthContext } from '../Auth/Providers/AuthProvider';
 import axios from 'axios';
+import { Fade } from 'react-awesome-reveal';
 
 const AllArticles = () => {
     const { user } = useContext(AuthContext);
@@ -108,41 +109,43 @@ const AllArticles = () => {
                     const isAccessible = !isPremium || isSubscribed;
 
                     return (
-                        <div
-                            key={article._id}
-                            className={`rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 border ${isPremium
-                                ? 'bg-gradient-to-br from-green-50 via-white to-green-100 border-green-500'
-                                : 'bg-white border-gray-200'
-                                }`}
-                        >
-                            <img
-                                src={article.image}
-                                alt={article.title}
-                                className="h-48 w-full object-cover"
-                            />
-                            <div className="p-5 space-y-3">
-                                <h3 className="text-lg font-bold leading-tight text-green-800 line-clamp-2 min-h-[52px]">
-                                    {article.title}
-                                </h3>
-                                <p className="text-sm text-gray-600">By {article.publisher}</p>
-                                <p className="text-sm text-gray-700 line-clamp-3 min-h-[60px]">
-                                    {article.description}
-                                </p>
+                        <Fade duration={1500}>
+                            <div
+                                key={article._id}
+                                className={`rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 border ${isPremium
+                                    ? 'bg-gradient-to-br from-green-50 via-white to-green-100 border-green-500'
+                                    : 'bg-white border-gray-200'
+                                    }`}
+                            >
+                                <img
+                                    src={article.image}
+                                    alt={article.title}
+                                    className="h-48 w-full object-cover"
+                                />
+                                <div className="p-5 space-y-3">
+                                    <h3 className="text-lg font-bold leading-tight text-green-800 line-clamp-2 min-h-[52px]">
+                                        {article.title}
+                                    </h3>
+                                    <p className="text-sm text-gray-600">By {article.publisher}</p>
+                                    <p className="text-sm text-gray-700 line-clamp-3 min-h-[60px]">
+                                        {article.description}
+                                    </p>
 
-                                <Link
-                                    to={isAccessible ? `/article/${article._id}` : "#"}
-                                    className={`block mt-3 px-4 py-2 rounded-full text-center text-sm font-semibold transition duration-300 ${isAccessible
-                                        ? 'bg-green-600 text-white hover:bg-green-700'
-                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                        }`}
-                                    onClick={e => {
-                                        if (!isAccessible) e.preventDefault();
-                                    }}
-                                >
-                                    {isAccessible ? "Details" : "Premium"}
-                                </Link>
+                                    <Link
+                                        to={isAccessible ? `/article/${article._id}` : "#"}
+                                        className={`block mt-3 px-4 py-2 rounded-full text-center text-sm font-semibold transition duration-300 ${isAccessible
+                                            ? 'bg-green-600 text-white hover:bg-green-700'
+                                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                            }`}
+                                        onClick={e => {
+                                            if (!isAccessible) e.preventDefault();
+                                        }}
+                                    >
+                                        {isAccessible ? "Details" : "Premium"}
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
+                        </Fade>
                     );
                 })}
             </div>

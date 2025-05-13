@@ -56,9 +56,8 @@ const UserSidebar = () => {
     return (
         <div className="sticky top-0 z-50">
             {/* Mobile Navbar */}
-            <div className="md:hidden bg-white shadow px-4 py-3 flex justify-between items-center">
-                <h2 className="text-lg font-bold text-green-600">User Panel</h2>
-                <button onClick={() => setOpen(!open)} className="text-gray-700">
+            <div className="md:hidden absolute  shadow  flex justify-between items-center rounded-full">
+                <button onClick={() => setOpen(!open)} className="text-gray-700 p-2 ">
                     {open ? <FaTimes size={24} /> : <FaBars size={24} />}
                 </button>
             </div>

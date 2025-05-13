@@ -1,5 +1,6 @@
 import { FaUsers, FaGlobe, FaNewspaper, FaBolt } from 'react-icons/fa';
 import CountUp from 'react-countup';
+import { Slide } from 'react-awesome-reveal';
 
 const stats = [
     {
@@ -49,18 +50,20 @@ const HomeStats = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                     {stats.map(stat => (
-                        <div
-                            key={stat.id}
-                            className={`p-6 rounded-2xl shadow-lg bg-gradient-to-br ${stat.color} text-white transform hover:scale-105 transition-all duration-300`}
-                        >
-                            <div className="flex items-center justify-center mb-4">
-                                {stat.icon}
+                        <Slide>
+                            <div
+                                key={stat.id}
+                                className={`p-6 rounded-2xl shadow-lg bg-gradient-to-br ${stat.color} text-white transform hover:scale-105 transition-all duration-300`}
+                            >
+                                <div className="flex items-center justify-center mb-4">
+                                    {stat.icon}
+                                </div>
+                                <h3 className="text-3xl font-bold mb-1">
+                                    <CountUp end={stat.value} duration={2} separator="," /> {stat.suffix}
+                                </h3>
+                                <p className="text-sm font-medium">{stat.title}</p>
                             </div>
-                            <h3 className="text-3xl font-bold mb-1">
-                                <CountUp end={stat.value} duration={2} separator="," /> {stat.suffix}
-                            </h3>
-                            <p className="text-sm font-medium">{stat.title}</p>
-                        </div>
+                        </Slide>
                     ))}
                 </div>
             </div>

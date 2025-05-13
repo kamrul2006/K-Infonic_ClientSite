@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const ProfileLayout = () => {
     return (
-        <div>
+        <div className='text-black'>
             <div className="flex">
                 <div className=' top-0 sticky'>
                     <UserSidebar />

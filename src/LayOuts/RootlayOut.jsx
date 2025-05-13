@@ -6,7 +6,7 @@ import Header from '../Components/InUse/Heading'
 
 const RootLayOut = () => {
     return (
-        <div>
+        <div className='text-black'>
             <Header />
 
             <Navbar />
